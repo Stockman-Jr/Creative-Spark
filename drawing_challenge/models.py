@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-class Challenges(models.Model):
+class Challenge(models.Model):
     title = models.CharField(max_length=200)
     challenge_prompt = models.CharField(max_length=500, unique=True)
     featured_image = CloudinaryField('image', default='placeholder')
