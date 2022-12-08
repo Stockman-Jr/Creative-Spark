@@ -1,8 +1,55 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<div class="container-fluid">
 <!--Daily Challenges-->
-Content goes here!
+<div class="container-xl challenge-card">
+    {% for challenge in challenge_list %}
+    <div class="card">
+
+      <div class="challenge-img" style="background-image: url('{{ post.featured_image.url }}')";>
+
+
+        <div class="card-body bg-overlay d-flex flex-column">
+
+          <div class="row">
+            <div class="col-12">
+              <span class="badge rounded-pill"><small>Daily Challenge</small></span>
+              {% now "Y-m-d" as todays_date %}
+              {% if todays_date == challenge.date_created %}
+                <span class="badge rounded-pill"><small>NEW!</small></span>
+              {% endif %}
+            </div>
+            <div class="col">
+              <p class="h4 text-center">{{ challenge.title }}</p>
+              <h3 class="challenge-prompt text-center">{{ challenge.challenge_prompt }}</h3>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <hr>
+      <div class="footer challenge-btns d-flex justify-content-center">
+        <button type="button" class="btn btn-lg btn-light ">Browse Artwork</button>
+        <button type="button" class="btn btn-lg btn-light ms-4">Submit</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if is_paginated %}
+  <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+          {% if page_obj.has_previous %}
+          <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+          {% endif %}
+          {% if page_obj.has_next %}
+          <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+          {% endif %}
+      </ul>
+  </nav>
+  {% endif %}
+</div>
 
 {%endblock%}
