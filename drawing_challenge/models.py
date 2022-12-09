@@ -36,7 +36,7 @@ class Post(models.Model):
 
 # class PostImage(models.Model):
 #    post = models.ForeignKey(Post, related_name='images', on_delete=models.CASCADE)
-#    image = CloudinaryField('image', default='placeholder')
+#    image_post = CloudinaryField('image')
 
 
 class Comment(models.Model):
