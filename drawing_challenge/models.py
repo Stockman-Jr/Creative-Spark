@@ -6,7 +6,7 @@ from cloudinary.models import CloudinaryField
 class Challenge(models.Model):
     title = models.CharField(max_length=200)
     challenge_prompt = models.CharField(max_length=500, unique=True)
-    featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField('image')
     slug = models.SlugField(max_length=200, unique=True)
     date_created = models.DateTimeField(auto_now=True)
 

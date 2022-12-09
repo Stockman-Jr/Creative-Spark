@@ -5,36 +5,35 @@
 <!--Daily Challenges-->
 <div class="container-xl challenge-card">
     {% for challenge in challenge_list %}
-    <div class="card">
+      <div class="card">
+             
+        <div class="challenge-img" style="background-image:url('{{ challenge.featured_image.url }}');">
 
-      <div class="challenge-img" style="background-image: url('{{ post.featured_image.url }}')";>
 
+          <div class="card-body bg-overlay d-flex flex-column">
 
-        <div class="card-body bg-overlay d-flex flex-column">
-
-          <div class="row">
-            <div class="col-12">
-              <span class="badge rounded-pill"><small>Daily Challenge</small></span>
-              {% now "Y-m-d" as todays_date %}
-              {% if todays_date == challenge.date_created %}
-                <span class="badge rounded-pill"><small>NEW!</small></span>
-              {% endif %}
+            <div class="row">
+              <div class="col-12">
+                <span class="badge rounded-pill"><small>Daily Challenge</small></span>
+                {% now "Y-m-d" as todays_date %}
+                {% if todays_date == challenge.date_created %}
+                  <span class="badge rounded-pill"><small>NEW!</small></span>
+                {% endif %}
+              </div>
+              <div class="col">
+                <p class="h4 text-center">{{ challenge.title }}</p>
+                <h3 class="challenge-prompt text-center">{{ challenge.challenge_prompt }}</h3>
+              </div>
             </div>
-            <div class="col">
-              <p class="h4 text-center">{{ challenge.title }}</p>
-              <h3 class="challenge-prompt text-center">{{ challenge.challenge_prompt }}</h3>
-            </div>
+            
           </div>
-
         </div>
 
+        <div class="footer challenge-btns d-flex justify-content-center">
+          <button type="button" class="btn btn-lg btn-light ">Browse Artwork</button>
+          <button type="button" class="btn btn-lg btn-light ms-4">Submit</button>
+        </div>
       </div>
-      <hr>
-      <div class="footer challenge-btns d-flex justify-content-center">
-        <button type="button" class="btn btn-lg btn-light ">Browse Artwork</button>
-        <button type="button" class="btn btn-lg btn-light ms-4">Submit</button>
-      </div>
-    </div>
     {% endfor %}
   </div>
   {% if is_paginated %}

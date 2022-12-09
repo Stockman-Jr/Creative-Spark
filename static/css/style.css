@@ -1,11 +1,11 @@
 @font-face {
     font-family: "ShineDemo";
-    src: url("fonts/ShineDemo.otf");
+    src: url("/static/fonts/ShineDemo.otf");
   }
   
   @font-face {
     font-family: "Abel";
-    src: url("fonts/Abel-Regular.ttf");
+    src: url("/static/fonts/Abel-Regular.ttf");
   }
   
   body {
@@ -109,3 +109,54 @@
     font-size: 40px;
     color: #e3ed52;
   }
+
+  /*CHALLENGE CARD*/
+
+  .challenge-card {
+    margin-top: 50px;
+  }
+
+  .bg-overlay,
+.card-body {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 120px;
+  color: #fff;
+}
+
+.challenge-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.challenge-prompt {
+  font-weight: 700;
+  font-size: 160%;
+  font-family: "Abel", sans-serif;
+  vertical-align: middle !important;
+}
+
+.challenge-btns {
+  margin-top: 10px;
+}
+
+.badge {
+  background-color: #07a07f;
+  width: 100px;
+  padding: 5px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
