@@ -12,6 +12,8 @@
     font-family: "Abel";
     letter-spacing: 0.1em;
   }
+
+  /*HEADER & NAVIGATION*/
   
   header {
     height: 300px;
@@ -103,6 +105,18 @@
   .nav-tabs {
     border-bottom: none;
   }
+
+  .col-link {
+    background-color: #107a7e;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  
+  .navbar-toggler {
+    margin-top: 15px;
+    padding: 5px;
+  }
+  
   
   .logo {
     color: #fff;
@@ -159,4 +173,15 @@
   position: absolute;
   padding-bottom: 10px;
   padding-top: 10px;
+}
+
+
+
+/*MEDIA-QUERIES*/
+
+@media screen and (max-width: 576px) {
+  .hidden {
+    display: none;
+    visibility: hidden;
+  }
 }
