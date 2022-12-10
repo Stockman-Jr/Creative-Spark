@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
 
 
 class Challenge(models.Model):
@@ -14,7 +15,10 @@ class Challenge(models.Model):
         ordering = ['-date_created']
 
     def __str__(self):
-        return self.title
+        return self.challenge_prompt
+
+    def get_absolute_url(self):
+        return reverse("challenge_post", kwargs={"slug": self.slug})
 
 
 class Post(models.Model):
@@ -34,9 +38,9 @@ class Post(models.Model):
         return self.likes.count()
 
 
-# class PostImage(models.Model):
-#    post = models.ForeignKey(Post, related_name='images', on_delete=models.CASCADE)
-#    image_post = CloudinaryField('image')
+class PostImage(models.Model):
+    post = models.ForeignKey(Post, related_name='images', on_delete=models.CASCADE)
+    image_post = CloudinaryField('image')
 
 
 class Comment(models.Model):
