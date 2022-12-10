@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('drawing_challenge.urls'), name='drawing_challenge_urls'),
+    path('accounts/', include('allauth.urls')),
 ]
