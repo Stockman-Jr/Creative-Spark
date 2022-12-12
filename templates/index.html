@@ -31,7 +31,7 @@
 
         <div class="footer challenge-btns d-flex justify-content-center">
           <a class="btn btn-lg btn-light" href="{{ challenge.get_absolute_url }}" role="button">Browse Artwork</a>
-          <a class="btn btn-lg btn-light ms-4" href="" role="button">Submit</a>
+          <a class="btn btn-lg btn-light ms-4" href="{% url 'create_post' %}" role="button">Submit</a>
         </div>
       </div>
     {% endfor %}
