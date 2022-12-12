@@ -165,7 +165,7 @@
   font-weight: 700;
 }
 
-.footer {
+.footer-c {
   background-color: rgba(0, 0, 0, 0.3);
   width: 100%;
   bottom: 0;
@@ -192,6 +192,7 @@
 
 .challenge-card {
   margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .card_avatar a {

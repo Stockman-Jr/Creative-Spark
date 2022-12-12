@@ -15,13 +15,15 @@ class ChallengeList(generic.ListView):
 
 class ChallengePostList(generic.ListView):
     model = Post
+    template_name = 'challenge_posts.html'
+    posts = Post.objects.all()
     ordering = ['-date_posted']
     paginate_by = 6
 
-    def get(self, request, slug, *args, **kwargs):
-        challenge = Challenge.objects.get(slug=slug)
-        posts = Post.objects.all()
-        return render(request, 'challenge_posts.html', context={'posts': posts})
+  #  def get(self, request, slug, *args, **kwargs):
+  #      challenge = Challenge.objects.get(slug=slug)
+  #      posts = Post.objects.all()
+  #      return render(request, 'challenge_posts.html', context={'posts': posts})
        
 
 @login_required
