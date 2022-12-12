@@ -21,3 +21,4 @@ urlpatterns = [
     path('', include('drawing_challenge.urls'), name='drawing_challenge_urls'),
     path('accounts/', include('allauth.urls')),
 ]
+

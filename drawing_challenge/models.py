@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
 
@@ -22,8 +23,10 @@ class Challenge(models.Model):
 
 
 class Post(models.Model):
+    post = models.ForeignKey(Challenge, null=True, on_delete=models.CASCADE, related_name='posts')
     title = models.CharField(max_length=200)
     caption = models.CharField(max_length=1000, blank=True)
+    image_post = models.ImageField(upload_to='post_images', blank=True, null=True)
     date_posted = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
@@ -32,15 +35,15 @@ class Post(models.Model):
         ordering = ['-date_posted']
 
     def __str__(self):
-        return self.caption
+        return self.title
 
     def number_of_likes(self):
         return self.likes.count()
 
 
-class PostImage(models.Model):
-    post = models.ForeignKey(Post, related_name='images', on_delete=models.CASCADE)
-    image_post = CloudinaryField('image')
+# class PostImage(models.Model):
+#    post = models.ForeignKey(Post, related_name='images', on_delete=models.CASCADE)
+#    image_post = CloudinaryField('image')
 
 
 class Comment(models.Model):
