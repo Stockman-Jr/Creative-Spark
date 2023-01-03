@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 from django.views.generic.edit import ModelFormMixin
 from .models import Challenge, Post, Comment
-from . import forms
+from .forms import CommentForm, PostForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -15,33 +15,33 @@ class ChallengeList(ListView):
 
 
 class PostList(ListView, ModelFormMixin):
-    model = Post
+    #model = Post
     template_name = 'post_list.html'
-    form_class = CommentForm
+    #form_class = CommentForm
     paginate_by = 6
 
-    def get(self, request, *args, **kwargs):
-        self.object = None
-        self.form = self.get_form(self.form_class)
+    #def get(self, request, *args, **kwargs):
+    #    self.object = None
+    #    self.form = self.get_form(self.form_class)
 
-        return ListView.get(self, request, *args, **kwargs)
+    #   return ListView.get(self, request, *args, **kwargs)
 
-    def get_context_data(self, *args, **kwargs):   
-        context = super(PostList, self).get_context_data(*args, **kwargs)
+    #def get_context_data(self, *args, **kwargs):   
+    #    context = super(PostList, self).get_context_data(*args, **kwargs)
 
-        context['form'] = self.form
-        return context
+    #    context['form'] = self.form
+    #    return context
      
-    def get_queryset(self):
-        return Post.objects.filter(challenge__challenge_prompt=self.kwargs['challenge'])
+    #def get_queryset(self):
+    #    return Post.objects.filter(challenge__challenge_prompt=self.kwargs['challenge'])
 
 
 @login_required
 def post(request):
-    post_form = forms.PostForm()
+    post_form = PostForm()
 
     if request.method == 'POST':
-        post_form = forms.PostForm(request.POST, request.FILES)
+        post_form = PostForm(request.POST, request.FILES)
 
     if post_form.is_valid():
         form = post_form.save(commit=False)
