@@ -31,6 +31,9 @@ class PostList(ListView, ModelFormMixin):
 
         context['form'] = self.form
         return context
+     
+    def get_queryset(self):
+        return Post.objects.filter(challenge__challenge_prompt=self.kwargs['challenge'])
 
 
 @login_required

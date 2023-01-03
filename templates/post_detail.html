@@ -1,0 +1,54 @@
+    <!--MODAL-->
+<div class="modal fade" id="postDetailModal{{post.pk}}" tabindex="-1" role="dialog" aria-labelledby="popupLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header flex-row d-flex justify-content-between">
+                <div class="card_avatar">
+
+                    <img src="https://i.pravatar.cc/150?img=3" alt="">
+
+                    <span>
+                        <a href="#">Art by: {{ post.author }}</a>
+                    </span>
+                </div>
+                <h5 class="modal-title text-center">{{ post.title }}</h5>
+                <p class="text-center">{{ post.pk }}</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row g-0">
+                        <div class="col user-art">
+                            <img class="img-fluid" src="{{ post.image_post.url }}" alt="">
+                        </div>
+                        <div class="col sidebar">
+                            <div class="action">
+                                <div class="like">
+                                    <span class="like-btn">
+                                        <a href="#" type="button" class="btn btn-light"><i
+                                                class="fas fa-heart list-like"></i>Like</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="action">
+                                <a href="#" type="button" class="btn btn-light"><i class="fa-regular fa-star"></i>
+                                    Favorite</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="col text-center">{{ post.caption }}</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="form-modal-footer" class="modal-footer">
+
+                <!--COMMENTS-->
+
+            </div>
+        </div>
+    </div>
+</div>
