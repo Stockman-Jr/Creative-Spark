@@ -9,7 +9,6 @@ class Challenge(models.Model):
     title = models.CharField(max_length=200)
     challenge_prompt = models.CharField(max_length=500, unique=True)
     featured_image = CloudinaryField('image')
-    slug = models.SlugField(max_length=200, unique=True, null=True, blank=True)
     date_created = models.DateTimeField(auto_now=True)
 
     class Meta:
@@ -19,11 +18,11 @@ class Challenge(models.Model):
         return self.challenge_prompt
 
     # def get_absolute_url(self):
-    #    return reverse("challenge_post", kwargs={"slug": self.slug})
+    #    return reverse("post_list")
 
 
 class Post(models.Model):
-    post = models.ForeignKey(Challenge, on_delete=models.CASCADE, related_name='posts')
+    challenge = models.ForeignKey(Challenge, on_delete=models.CASCADE, related_name='challenges')
     title = models.CharField(max_length=200)
     caption = models.CharField(max_length=1000, blank=True)
     image_post = models.ImageField(upload_to='post_images')
@@ -39,17 +38,16 @@ class Post(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
-
-
-# class PostImage(models.Model):
-#    post = models.ForeignKey(Post, related_name='images', on_delete=models.CASCADE)
-#    image_post = CloudinaryField('image')
+    
+    # def get_absolute_url(self):
+    #    return reverse('post_detail', kwargs={'pk': self.pk})
 
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
-    content = models.CharField(max_length=800, blank=False)
+    content = models.TextField(max_length=800)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
     date_created = models.DateTimeField(auto_now=True)
 
     class Meta:
