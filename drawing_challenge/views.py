@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
-from .models import Challenge, Post
+from django.views.generic.edit import ModelFormMixin
+from .models import Challenge, Post, Comment
 from . import forms
 from django.contrib.auth.decorators import login_required
 
@@ -13,12 +14,23 @@ class ChallengeList(ListView):
     paginate_by = 6
 
 
-class ChallengePostList(ListView):
+class PostList(ListView, ModelFormMixin):
     model = Post
-    template_name = 'challenge_posts.html'
-    queryset = Post.objects.all()
-    ordering = ['-date_posted']
+    template_name = 'post_list.html'
+    form_class = CommentForm
     paginate_by = 6
+
+    def get(self, request, *args, **kwargs):
+        self.object = None
+        self.form = self.get_form(self.form_class)
+
+        return ListView.get(self, request, *args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):   
+        context = super(PostList, self).get_context_data(*args, **kwargs)
+
+        context['form'] = self.form
+        return context
 
 
 @login_required
