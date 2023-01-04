@@ -182,18 +182,23 @@
   font-size: 20px;
 }
 
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
+.card-img-top {
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+ }
 
 .challenge-card {
   margin-top: 50px;
   margin-bottom: 30px;
 }
+
+.post-detail:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 4;
+}
+
 
 .card_avatar a {
   text-decoration: none;
@@ -213,6 +218,38 @@
   margin: 20px;
 }
 
+/*MODAL*/
+
+.modal-header .btn-close {
+  margin: 0;
+}
+
+.sidebar {
+  background-color: #dadddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row.no-gutters {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col-md-9.user-art {
+  padding-right: 0;
+}
+
+/*COMMENTS*/
+
+textarea {
+  height: 100px;
+}
+
+.card-body.comment {
+  padding: 0px;
+}
 
 
 /*MEDIA-QUERIES*/

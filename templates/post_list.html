@@ -44,4 +44,38 @@
 </div>
 </div>
 
+{% block js %}
+<script>
+  $(document).ready(function () {
+  $(".comment_form").on("submit", function (e) {
+     e.preventDefault();
+     var pk = $(this).attr('value')
+     console.log($(this).serialize());
+     $.ajax({
+         type: 'POST',
+         url: $(this).attr('action'),
+         headers: {'Accept': 'application/json',
+                 'X-Requested-With': 'XMLHttpRequest', 
+                 'X-CSRFToken': "{{ csrf_token }}",
+                   },
+         data: $(this).serialize(),
+         success: function (response) {
+             console.log('SUCCESS')
+             $(".comment_form").trigger('reset');
+    
+  
+             $('.comment').prepend(
+              `<div id='comment-box'>
+                <h5>${response["name"]}</h5> 
+                <p>${response["content"]}</p>`)
+         }
+     });
+ });
+});
+</script>
+{% endblock js %}
+
+
+
+
 {%endblock%}

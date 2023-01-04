@@ -19,10 +19,10 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row g-0">
-                        <div class="col user-art">
+                        <div class="col-lg-6 col-sm-12 user-art">
                             <img class="img-fluid" src="{{ post.image_post.url }}" alt="">
                         </div>
-                        <div class="col sidebar">
+                        <div class="col-lg-6 col-sm-12 sidebar">
                             <div class="action">
                                 <div class="like">
                                     <span class="like-btn">
@@ -48,12 +48,13 @@
             <!--COMMENTS-->
                 <div class="container">
                     <div class="row">
+                        <h6 class="text-center">Comments:</h6>
                         <div class="col card mb-4  mt-3 ">
                             <h6>Comments:</h6>
                             <div class="card-body comment">
                                 {% for comment in post.comments.all %}
                                 <div id='comment-box'>
-                                    <h5 class="c-name">{{ comment.name }}</h5>
+                                    <h6 class="c-name">{{ comment.name }}:</h6>
                                     <p class="c-content">{{ comment.content }}</p>
                                 </div>
                                 {% endfor %}
