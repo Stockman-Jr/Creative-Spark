@@ -100,14 +100,14 @@ $(function() {
           success: function(response) {
             console.log(response.liked)
             if (response.liked == true) {
-              $(".like").find("#likeBtn" + id).removeClass("unliked").addClass("liked")
+              $(".like").find("#likeBtn" + id).removeClass("unliked").addClass("liked press")
   
               res = countLikes + 1
            
 
             }
             else if (response.liked == false) {
-              $(".like").find("#likeBtn" + id).removeClass("liked").addClass("unliked")
+              $(".like").find("#likeBtn" + id).removeClass("liked press").addClass("unliked")
               res = countLikes - 1
             }
             $('.like-count' + id).text(res)

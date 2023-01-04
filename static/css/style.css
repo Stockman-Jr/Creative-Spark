@@ -252,6 +252,15 @@ textarea {
 }
 
 /*LIKE*/
+#likeBtn {
+  cursor: pointer;
+  font-size: 16px;
+  transition:.2s;
+}
+
+.list-like:hover {
+color: rgb(13, 91, 94);
+}
 
 .liked {
   color: #ec3939;
@@ -259,6 +268,23 @@ textarea {
 
 .unliked {
   color: #aaa;
+}
+
+.press {
+  animation-name: likeAnimation;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  bottom:120px;
+  font-size:16px;
+  visibility:visible;
+ 
+}
+
+@keyframes likeAnimation {
+  0%   { transform: scale(2); color:#f8bbbb; }
+  50%  {transition:.6s; color:#fd8b8b;}
+  100% { transform: scale(1); color:#ec3939;}
 }
 
 
