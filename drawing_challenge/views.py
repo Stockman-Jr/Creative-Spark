@@ -77,3 +77,21 @@ def post_detail(request):
         html = render_to_string('post_detail.html', {'form': form}, request=request)
         return JsonResponse({'form': html})
 
+
+def like(request):
+
+    if request.POST.get('action') == 'post':
+        is_liked = None
+        postpk = (request.POST.get('post_pk'))
+        post = get_object_or_404(Post, pk=postpk)
+
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+            post.save()
+            is_liked = False
+        else:
+            post.likes.add(request.user)
+            post.save()
+            is_liked = True
+        return JsonResponse({'number_of_likes': post.number_of_likes, 'is_liked': is_liked})
+    return HttpResponse("Error access denied")
