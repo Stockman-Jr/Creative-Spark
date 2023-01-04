@@ -17,8 +17,8 @@ class Challenge(models.Model):
     def __str__(self):
         return self.challenge_prompt
 
-    #def get_absolute_url(self):
-    #    return reverse("post_list")
+    def get_absolute_url(self):
+        return reverse("post_list")
 
 
 class Post(models.Model):

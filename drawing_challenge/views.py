@@ -14,8 +14,8 @@ class ChallengeList(ListView):
     paginate_by = 6
 
 
-class PostList(ListView, ModelFormMixin):
-    #model = Post
+class PostList(ListView):
+    model = Post
     template_name = 'post_list.html'
     #form_class = CommentForm
     paginate_by = 6
@@ -32,8 +32,8 @@ class PostList(ListView, ModelFormMixin):
     #    context['form'] = self.form
     #    return context
      
-    #def get_queryset(self):
-    #    return Post.objects.filter(challenge__challenge_prompt=self.kwargs['challenge'])
+    def get_queryset(self):
+        return Post.objects.filter(challenge__challenge_prompt=self.kwargs['challenge'])
 
 
 @login_required
