@@ -1,8 +1,13 @@
+import json
+from django.forms import model_to_dict
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 from django.views.generic.edit import ModelFormMixin
+from django.contrib.auth.models import User
 from .models import Challenge, Post, Comment
 from .forms import CommentForm, PostForm
+from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 
 
@@ -49,4 +54,26 @@ def post(request):
         form.save()
         return redirect('home')
     return render(request, 'post_upload.html', context={'post_form': post_form})
+
+
+def post_detail(request):
+    is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest'
+    postid = (request.POST.get('post_id'))
+    post = get_object_or_404(Post, pk=postid)
+    form = CommentForm()
+    if request.method == 'POST':
+        content = request.POST.get('content')
+        form = CommentForm(data=request.POST)
+
+        if form.is_valid():
+            comment = Comment()
+            comment.name = request.user.username
+            comment.content = content
+            comment.post = post
+            comment.save()
+            return JsonResponse(model_to_dict(comment), status=200)
+
+    if is_ajax:
+        html = render_to_string('post_detail.html', {'form': form}, request=request)
+        return JsonResponse({'form': html})
 
