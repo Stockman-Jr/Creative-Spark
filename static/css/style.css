@@ -251,6 +251,17 @@ textarea {
   padding: 0px;
 }
 
+/*LIKE*/
+
+.liked {
+  color: #ec3939;
+}
+
+.unliked {
+  color: #aaa;
+}
+
+
 
 /*MEDIA-QUERIES*/
 

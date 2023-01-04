@@ -27,9 +27,20 @@
               </strong>
             </span>
           </div>
-          <div class="like">
-            <!--LIKE SECTION-->
-          </div>
+          <div class="like" id="{{ post.id }}">
+            {% if post in liked_post %}
+                <span class="like-btn" id="{{ post.pk }}">
+                <a href="{% url 'post_like' %}" id="likeBtn{{ post.pk }}" class="liked"><i class="fas fa-heart list-like"></i></a>
+                <span class="like-count{{ post.pk }}">{{ post.likes.count }}</span>
+              </span> 
+              {% else %}
+              <span class="like-btn">
+                <a href="{% url 'post_like' %}" id="likeBtn{{ post.id }}" class="unliked"><i class="fas fa-heart list-like"></i></a>
+                <span class="like-count{{ post.id }}">{{ post.likes.count }}</span>
+              </span>
+          {% endif %}
+         </div>
+
         </div>
       </div>
     </div>
@@ -72,6 +83,42 @@
      });
  });
 });
+
+$(function() {
+  $('.like').on("click", function(e) {
+        var id = this.id;
+        var href = $(".like").find("a").attr("href")
+        console.log(href, id)
+        const likes = $('.like-count' + id).text()
+        const countLikes = parseInt(likes)
+        e.preventDefault()
+        $.ajax({
+          url: href,
+          data: {
+            likeId: id,
+          },
+          success: function(response) {
+            console.log(response.liked)
+            if (response.liked == true) {
+              $(".like").find("#likeBtn" + id).removeClass("unliked").addClass("liked")
+  
+              res = countLikes + 1
+           
+
+            }
+            else if (response.liked == false) {
+              $(".like").find("#likeBtn" + id).removeClass("liked").addClass("unliked")
+              res = countLikes - 1
+            }
+            $('.like-count' + id).text(res)
+
+          },
+        
+
+        });
+
+    });
+    });
 </script>
 {% endblock js %}
 

@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 from django.views.generic.edit import ModelFormMixin
 from django.contrib.auth.models import User
-from .models import Challenge, Post, Comment
+from .models import Challenge, Post, Comment, Like
 from .forms import CommentForm, PostForm
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
@@ -34,7 +34,10 @@ class PostList(ListView, ModelFormMixin):
     def get_context_data(self, *args, **kwargs):   
         context = super(PostList, self).get_context_data(*args, **kwargs)
 
+        liked = [i for i in Post.objects.all() if Like.objects.filter(user = self.request.user, post=i)]
+
         context['form'] = self.form
+        context['post_liked'] = liked
         return context
      
     def get_queryset(self):
@@ -80,18 +83,19 @@ def post_detail(request):
 
 def like(request):
 
-    if request.POST.get('action') == 'post':
-        is_liked = None
-        postpk = (request.POST.get('post_pk'))
-        post = get_object_or_404(Post, pk=postpk)
-
-        if post.likes.filter(id=request.user.id).exists():
-            post.likes.remove(request.user)
-            post.save()
-            is_liked = False
-        else:
-            post.likes.add(request.user)
-            post.save()
-            is_liked = True
-        return JsonResponse({'number_of_likes': post.number_of_likes, 'is_liked': is_liked})
-    return HttpResponse("Error access denied")
+    post_id = request.GET.get("likeId", "")
+    user = request.user
+    post = Post.objects.get(pk=post_id)
+    liked = False
+    like = Like.objects.filter(user=user, post=post)
+    if like:
+        liked = False
+        like.delete()
+    else:
+        liked = True
+        Like.objects.create(user=user, post=post)
+    res = {
+        'liked': liked
+        }
+    response = json.dumps(res)
+    return HttpResponse(response, content_type='application/json')
