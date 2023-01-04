@@ -45,8 +45,25 @@
 
 
             <div id="form-modal-footer" class="modal-footer">
+            <!--COMMENTS-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col card mb-4  mt-3 ">
+                            <h6>Comments:</h6>
+                            <div class="card-body comment">
+                                {% for comment in post.comments.all %}
+                                <div id='comment-box'>
+                                    <h5 class="c-name">{{ comment.name }}</h5>
+                                    <p class="c-content">{{ comment.content }}</p>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
 
-                <!--COMMENTS-->
+                        {% include 'comment.html' %}
+
+                    </div>
+                </div>
 
             </div>
         </div>
