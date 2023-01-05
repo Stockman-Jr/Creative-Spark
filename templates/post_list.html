@@ -10,9 +10,13 @@
    <div class="col">
 
     <div class="card shadow-sm">
-      <a href="#postDetailModal{{post.pk}}" data-bs-toggle="modal" >
+    
+      <a href="#postDetailModal{{post.pk}}" data-bs-toggle="modal" class="effect">
         <img src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="">
+        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+        <div class="overlay hover-overlay"></div>
       </a>
+    
 
       <div class="card-body">
         <p class="card-text text-center">{{ post.title }}</p>
