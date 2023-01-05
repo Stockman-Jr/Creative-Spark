@@ -28,7 +28,7 @@ class Post(models.Model):
     image_post = models.ImageField(upload_to='post_images')
     date_posted = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
+    liked = models.ManyToManyField(User, related_name='post_likes', blank=True)
 
     class Meta:
         ordering = ['-date_posted']
@@ -37,7 +37,7 @@ class Post(models.Model):
         return self.title
 
     def number_of_likes(self):
-        return self.likes.count()
+        return self.liked.count()
     
     def get_absolute_url(self):
         return reverse('post_detail', kwargs={'pk': self.pk})
@@ -57,6 +57,6 @@ class Comment(models.Model):
 
 
 class Like(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='likes', on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, related_name='likes', on_delete=models.CASCADE)
 

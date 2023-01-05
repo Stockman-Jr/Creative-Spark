@@ -32,7 +32,7 @@
             </span>
           </div>
           <div class="like" id="{{ post.id }}">
-            {% if post in liked_post %}
+            {% if post in post_liked %}
                 <span class="like-btn" id="{{ post.pk }}">
                 <a href="{% url 'post_like' %}" id="likeBtn{{ post.pk }}" class="liked"><i class="fas fa-heart list-like"></i></a>
                 <span class="like-count{{ post.pk }}">{{ post.likes.count }}</span>
@@ -40,7 +40,7 @@
               {% else %}
               <span class="like-btn">
                 <a href="{% url 'post_like' %}" id="likeBtn{{ post.id }}" class="unliked"><i class="fas fa-heart list-like"></i></a>
-                <span class="like-count{{ post.id }}">{{ post.likes.count }}</span>
+                <span class="like-count{{ post.id }}">{{ post.likes.count}}</span>
               </span>
           {% endif %}
          </div>
