@@ -363,6 +363,24 @@ color: rgb(13, 91, 94);
   margin-bottom: 10px;
 }
 
+/*POST FORM*/
+
+.form-group {
+  margin-top: 20px;
+  color: #107a7e;
+}
+
+.post-btn {
+  background-color: #107a7e;
+  color: #dadddd;
+  margin-top: 20px;
+}
+
+.post-btn:hover {
+  background-color: #07a07f;
+  color: #dadddd;
+}
+
 
 
 /*MEDIA-QUERIES*/
