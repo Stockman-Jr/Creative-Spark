@@ -344,6 +344,25 @@ color: rgb(13, 91, 94);
   100% { transform: scale(1); color:#ec3939;}
 }
 
+/* USER PROFILES */
+.post-gallery {
+  max-width: 50%;
+}
+.post-wrapper {
+  border: 2px solid #107a7e;
+  border-radius: 5px;
+}
+
+.post-info {
+  border-top: 2px solid #107a7e;
+
+}
+
+.info-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 
 
 /*MEDIA-QUERIES*/
