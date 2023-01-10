@@ -83,6 +83,12 @@
     backdrop-filter: blur(1.2px);
     -webkit-backdrop-filter: blur(1.2px);
   }
+
+  .user-profile-menu {
+    margin-right: 15px;
+    margin-top: 10px;
+    z-index: 4;
+  }
   
   .navbar {
     padding: 0;

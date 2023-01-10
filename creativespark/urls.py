@@ -23,5 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('drawing_challenge.urls')),
     path('accounts/', include('allauth.urls')),
+    path('users/<slug>/', user_views.profile_view, name='user_profile'),
+    path('my-profile/', user_views.my_profile, name='my_profile'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

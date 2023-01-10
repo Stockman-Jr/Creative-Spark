@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="card-avatar col-1">
+            <img src="{{ p_user.profile.image.url }}" alt="" srcset="">
+            <p>{{ u.username }}</p>
+        </div>
+        <div class="col-3">
+            <p>Submissions: {{ post_count }}</p>
+        </div>
+    </div>
+</div>
+{%endblock%}

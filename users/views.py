@@ -28,8 +28,8 @@ def my_profile(request):
     Profile.objects.get_or_create(user=request.user)
     p = request.user.profile
     current_user = p.user
-    user_posts = Post.objects.filter(author=p_user).order_by('-date_posted')
-    post_count = Post.objects.filter(author=p_user).count()
+    user_posts = Post.objects.filter(author=current_user).order_by('-date_posted')
+    post_count = Post.objects.filter(author=current_user).count()
 
     context = {
         'p_user': current_user,

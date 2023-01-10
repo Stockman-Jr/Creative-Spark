@@ -6,6 +6,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import ModelFormMixin
 from django.contrib.auth.models import User
 from .models import Challenge, Post, Comment, Like
+from users.models import Profile
 from .forms import CommentForm, PostForm
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
@@ -34,7 +35,7 @@ class PostList(ListView, ModelFormMixin):
     def get_context_data(self, *args, **kwargs):   
         context = super(PostList, self).get_context_data(*args, **kwargs)
 
-        liked = [i for i in Post.objects.all() if Like.objects.filter(user = self.request.user, post=i)]
+        liked = [i for i in Post.objects.all() if Like.objects.filter(user=self.request.user, post=i)]
 
         context['form'] = self.form
         context['post_liked'] = liked
