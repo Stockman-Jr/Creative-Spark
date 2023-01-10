@@ -7,5 +7,17 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'content', 'post', 'date_created')
 
 
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'caption', 'image_post', 'challenge', 'approved')
+    list_filter = [
+        ('approved', admin.BooleanFieldListFilter),
+    ]
+    actions = ['approve_submission']
+
+    def approve_submission(self, request, queryset):
+        queryset.update(approved=True)
+
+
 admin.site.register(Challenge)
-admin.site.register(Post)
+

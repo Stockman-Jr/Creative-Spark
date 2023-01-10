@@ -29,6 +29,7 @@ class Post(models.Model):
     date_posted = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     liked = models.ManyToManyField(User, related_name='post_likes', blank=True)
+    approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-date_posted']

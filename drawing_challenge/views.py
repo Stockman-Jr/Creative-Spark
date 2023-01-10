@@ -35,10 +35,13 @@ class PostList(ListView, ModelFormMixin):
     def get_context_data(self, *args, **kwargs):   
         context = super(PostList, self).get_context_data(*args, **kwargs)
 
+        approved_posts = Post.objects.filter(approved=True)
+
         liked = [i for i in Post.objects.all() if Like.objects.filter(user=self.request.user, post=i)]
 
         context['form'] = self.form
         context['post_liked'] = liked
+        context['approved_posts'] = approved_posts
         return context
      
     def get_queryset(self):
@@ -57,6 +60,9 @@ def post(request):
         form.author = request.user
         form.save()
         return redirect('home')
+    
+    challenge = Challenge.objects.all()[0]
+    post_form = PostForm(initial={'challenge': challenge})
     return render(request, 'post_upload.html', context={'post_form': post_form})
 
 
