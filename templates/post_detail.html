@@ -6,7 +6,7 @@
             <div class="modal-header flex-row d-flex justify-content-between">
                 <div class="card_avatar">
 
-                    <img src="https://i.pravatar.cc/150?img=3" alt="">
+                    <img src="{{ request.user.profile.image.url }}" alt="">
 
                     <span>
                         <a href="#">Art by: {{ post.author }}</a>

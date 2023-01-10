@@ -21,7 +21,7 @@
       <div class="bg-image"></div>
       {% if user.is_authenticated %}
       <div class="dropdown user-profile-menu card_avatar position-absolute top-0 end-0">
-        <a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"><img src="https://i.pravatar.cc/150?img=3" alt=""></a>
+        <a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"><img src="{{ request.user.profile.image.url }}" alt=""></a>
         <ul class="dropdown-menu">
           <li><h6 class="dropdown-header text-center">{{ request.user.username }}</h6></li>
           <hr>

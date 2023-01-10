@@ -24,7 +24,7 @@
         <div class="d-flex align-items-center">
           <div class="card_avatar flex-grow-1">
             <a href="{{ post.author.profile.get_absolute_url }}">
-              <img src="https://i.pravatar.cc/150?img=3" alt=""></a>
+              <img src="{{ request.user.profile.image.url }}" alt=""></a>
             <span>
               <strong>
                 <a href="{{ post.author.profile.get_absolute_url }}">{{ post.author }}</a>
