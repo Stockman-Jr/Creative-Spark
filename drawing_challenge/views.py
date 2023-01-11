@@ -106,3 +106,16 @@ def like(request):
         }
     response = json.dumps(res)
     return HttpResponse(response, content_type='application/json')
+
+
+@login_required
+def add_favourite(request, pk):
+    user = request.user
+    post = get_object_or_404(Post, pk=pk)
+    profile = Profile.objects.get(user=user)
+
+    if profile.favourite.filter(id=pk).exists():
+        profile.favourite.remove(post)
+    else:
+        profile.favourite.add(post)
+    return HttpResponse(request.META['HTTP_REFERER'])
