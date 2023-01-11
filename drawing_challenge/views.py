@@ -1,6 +1,6 @@
 import json
 from django.forms import model_to_dict
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 from django.views.generic.edit import ModelFormMixin
@@ -10,6 +10,8 @@ from users.models import Profile
 from .forms import CommentForm, PostForm
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.contrib import messages
 
 
 class ChallengeList(ListView):
@@ -38,9 +40,11 @@ class PostList(ListView, ModelFormMixin):
         approved_posts = Post.objects.filter(approved=True)
 
         liked = [i for i in Post.objects.all() if Like.objects.filter(user=self.request.user, post=i)]
+        faved = [i for i in Post.objects.all() if Profile.objects.filter(user=self.request.user, favourite=i)]
 
         context['form'] = self.form
         context['post_liked'] = liked
+        context['faved'] = faved
         context['approved_posts'] = approved_posts
         return context
      
@@ -58,6 +62,7 @@ def post(request):
     if post_form.is_valid():
         form = post_form.save(commit=False)
         form.author = request.user
+        messages.add_message(request, messages.SUCCESS, 'Submit sucessful, awaiting approval!')
         form.save()
         return redirect('home')
     
@@ -118,4 +123,5 @@ def add_favourite(request, pk):
         profile.favourite.remove(post)
     else:
         profile.favourite.add(post)
-    return HttpResponse(request.META['HTTP_REFERER'])
+        messages.add_message(request, messages.SUCCESS, 'Added to favourites!')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

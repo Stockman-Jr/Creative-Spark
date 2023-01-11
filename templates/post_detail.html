@@ -32,10 +32,15 @@
                                 </div>
                             </div>
                             <hr>
+                            {% if post in faved %}
                             <div class="action">
-                                <a href="#" type="button" class="btn btn-light"><i class="fa-regular fa-star"></i>
-                                    Favorite</a>
+                              <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}"   type="button" class="btn btn-light"><i class="fa-regular fa-star"></i> Favorited</a>
                             </div>
+                            {% else %}
+                            <div class="action">
+                              <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}"   type="button" class="btn btn-light"><i class="fa-regular fa-star"></i>Favorite</a>
+                            </div>
+                            {% endif %}
                         </div>
                         <hr>
                         <div class="col text-center">{{ post.caption }}</div>
