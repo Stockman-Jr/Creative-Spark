@@ -38,4 +38,28 @@
     <hr>
 </div>
 
+<!--FAVOURITES GALLERY-->
+{% if '/users/' in request.path %}
+    <h4 class="text-center mt-4"> {{ p_user.username }}'s favourites: </h4>
+{% elif '/my-profile/' in request.path %}
+    <h4 class="text-center mt-4"> Your favourites: </h4>
+{% endif %}
+<div class="container-fluid d-flex justify-content-center mt-4 user-gallery">
+    <div class="post-gallery">
+        {% for post in faves %}
+            <div class="post-wrapper mb-3 text-center">
+                <img class="img-fluid artwork" src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="">
+                <div class="card-footer post-info">
+                    <div class="info-text">
+                        <p>Created by: {{ post.author }}</p>
+                        <p>Challenge: {{ post.challenge.challenge_prompt }}</p>
+                        <span>Likes: {{ post.likes.count }}</span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
 {%endblock%}

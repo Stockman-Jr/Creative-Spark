@@ -41,23 +41,16 @@
 </div>
 
 
-<div class="container mt-4">
-    <div class="row">
-        <div class="card-avatar col-1">
-            <img src="{{ p_user.profile.image.url }}" alt="" srcset="">
-            <p>{{ p_user.username }}</p>
-        </div>
-        <div class="col-3">
-            <p>Submissions: {{ post_count }}</p>
-        </div>
-    </div>
-</div>
+<div class="mt-4">
+    <h5 class="text-center">Challenge submissions: {{ post_count }}</h5>
+  </div>
 
-<div class="container-fluid d-flex justify-content-center">
+
+<div class="container-fluid d-flex justify-content-center user-gallery">
     <div class="post-gallery">
         {% for post in user_posts %}
         <div class="post-wrapper mb-3 text-center">
-            <img class="img-fluid artwork" src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="">
+            <img class="img-fluid" src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="">
             <div class="card-footer post-info">
                 <div class="info-text">
                     <p><strong>Challenge:</strong> {{ post.challenge.challenge_prompt }}</p>
@@ -91,7 +84,8 @@
             </div>
         </div>
 
+
+    {% endfor %}
     </div>
 </div>
-    {% endfor %}
 {%endblock%}
