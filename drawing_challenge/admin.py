@@ -9,6 +9,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
+    model = Post
     list_display = ('title', 'caption', 'image_post', 'challenge', 'approved')
     list_filter = [
         ('approved', admin.BooleanFieldListFilter),
@@ -19,5 +20,14 @@ class PostAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
-admin.site.register(Challenge)
+class PostInline(admin.TabularInline):
+    model = Post
+    extra = 0
+    readonly_fields = ['title', 'caption', 'image_post',]
 
+
+class ChallengePostsAdmin(admin.ModelAdmin):
+    inlines = [PostInline,]
+
+
+admin.site.register(Challenge, ChallengePostsAdmin)

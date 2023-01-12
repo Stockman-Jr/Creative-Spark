@@ -32,14 +32,25 @@ Join the community and get tons of inspiration by participating in our drawing c
 ## User Stories
 
 ### As an unauthenticated user, I can:
-
+  * Easily navigate around the application to view most content.
+  * Click the 'Signup' navigation link to register and become a member.
+  * View all challenges as well as posts submitted to each challenge.
 
 
 ### As an authenticated user, I can:
+  * Submit art to participate in challenges
+  * View full posts
+  * View and comment on posts
+  * Like and unlike posts
+  * Add posts to favourites
+  * View other users profile pages
+  * Utilise my profile page to view and delete my uploaded content as well as my favourite posts
 
 
-
-### As a superuser / staff member, I can:
+### As a site admin, I can:
+  * Perform all tasks mentioned above
+  * Approve user posts
+  * Delete comments, posts and challenges
 
 
 - - -
