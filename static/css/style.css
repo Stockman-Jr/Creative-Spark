@@ -11,6 +11,14 @@
   body {
     font-family: "Abel";
     letter-spacing: 0.1em;
+    height: 100vh;
+  }
+
+  .main-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   /*HEADER & NAVIGATION*/
@@ -129,6 +137,23 @@
     font-size: 40px;
     color: #e3ed52;
   }
+
+
+  /*INTRO*/
+
+.introduction {
+  margin-top: 40px;
+  background-color: #d6dbdb;
+  padding: 20px;
+  font-weight: 700;
+}
+
+.intro { 
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 700;
+  }
+
 
   /*CHALLENGE CARD*/
 
@@ -423,6 +448,15 @@ font-weight: 700;
 .post-btn:hover {
   background-color: #07a07f;
   color: #dadddd;
+}
+
+/*FOOTER*/
+
+.footer {
+
+  width: 100%;
+  flex: 0;
+  background-color: #dadddd;
 }
 
 
