@@ -20,7 +20,7 @@
 <!--Daily Challenges-->
 <div class="container-xl challenge-card">
     {% for challenge in challenge_list %}
-    {% if challenge.is_expired %}
+    {% if challenge.is_active %}
       <div class="card challenge-card">
              
         <div class="challenge-img" style="background-image:url('{{ challenge.featured_image.url }}');">

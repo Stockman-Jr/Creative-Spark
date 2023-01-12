@@ -11,7 +11,6 @@
                     </span>
                 </div>
                 <h5 class="modal-title text-center">{{ post.title }}</h5>
-                <p class="text-center">{{ post.pk }}</p>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -52,7 +51,6 @@
                     <div class="row">
                         <h6 class="text-center">Comments:</h6>
                         <div class="col card mb-4  mt-3 ">
-                            <h6>Comments:</h6>
                             <div class="card-body comment">
                                 {% for comment in post.comments.all %}
                                     <div id='comment-box'>

@@ -23,11 +23,16 @@ class PostAdmin(admin.ModelAdmin):
 class PostInline(admin.TabularInline):
     model = Post
     extra = 0
-    readonly_fields = ['title', 'caption', 'image_post',]
+    readonly_fields = ['author', 'title', 'caption', 'image_post', 'liked']
 
 
 class ChallengePostsAdmin(admin.ModelAdmin):
     inlines = [PostInline,]
+    list_display = ('challenge_prompt', 'featured_image', 'date_created', 'get_is_active')
+
+    def get_is_active(self, obj):
+        return obj.is_active
+    get_is_active.boolean = True
 
 
 admin.site.register(Challenge, ChallengePostsAdmin)

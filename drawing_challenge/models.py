@@ -18,9 +18,9 @@ class Challenge(models.Model):
 
     def __str__(self):
         return self.challenge_prompt
-    
+
     @property
-    def is_expired(self):
+    def is_active(self):
         return (self.date_created.date() + timedelta(days=2)) > date.today()
 
     def get_absolute_url(self):
@@ -46,9 +46,6 @@ class Post(models.Model):
 
     def number_of_likes(self):
         return self.liked.count()
-
-    #def get_absolute_url(self):
-    #    return reverse('post_detail', kwargs={'pk': self.pk})
 
 
 class Comment(models.Model):
