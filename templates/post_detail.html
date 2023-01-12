@@ -24,21 +24,21 @@
                         </div>
                         <div class="col-lg-6 col-sm-12 sidebar">
                             <div class="action">
-                                <div class="like">
-                                    <span class="like-btn">
-                                        <a href="#" type="button" class="btn btn-light"><i
-                                                class="fas fa-heart list-like"></i>Like</a>
-                                    </span>
-                                </div>
+                                <span>{{ post.challenge.challenge_prompt }}</span>
+                                <hr>
+                                <span>Likes: {{ post.likes.count }} <br> Posted: {{ post.date_posted }}</span>
+            
+
+
                             </div>
                             <hr>
                             {% if post in faved %}
                             <div class="action">
-                              <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}"   type="button" class="btn btn-light"><i class="fa-regular fa-star"></i> Favorited</a>
+                              <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}"   type="button" class="btn btn-light"><i class="fa-solid fa-star fav"></i> Favorited</a>
                             </div>
                             {% else %}
                             <div class="action">
-                              <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}"   type="button" class="btn btn-light"><i class="fa-regular fa-star"></i>Favorite</a>
+                              <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}"   type="button" class="btn btn-light"><i class="fa-solid fa-star unfav"></i>Favorite</a>
                             </div>
                             {% endif %}
                         </div>

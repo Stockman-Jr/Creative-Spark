@@ -308,7 +308,7 @@ textarea {
   padding: 0px;
 }
 
-/*LIKE*/
+/*LIKE AND FAVOURITES */
 #likeBtn {
   cursor: pointer;
   font-size: 16px;
@@ -342,6 +342,14 @@ color: rgb(13, 91, 94);
   0%   { transform: scale(2); color:#f8bbbb; }
   50%  {transition:.6s; color:#fd8b8b;}
   100% { transform: scale(1); color:#ec3939;}
+}
+
+.fav {
+  color: #f8cb03;
+}
+
+.unfav {
+  color: rgb(94, 94, 94);
 }
 
 /* USER PROFILES */

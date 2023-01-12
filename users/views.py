@@ -38,3 +38,35 @@ def my_profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+
+@login_required
+def favourite_list(request, slug):
+    Profile.objects.get_or_create(user=request.user)
+    p = Profile.objects.filter(slug=slug).first()
+    p_user = p.user
+    faves = p.favourite.all()
+
+    context = {
+        'p_user': p_user,
+        'p': p,
+        'faves': faves
+    }
+
+    return render(request, 'users/profile_favourites.html', context)
+
+
+@login_required
+def my_favourites(request):
+    Profile.objects.get_or_create(user=request.user)
+    p = request.user.profile
+    current_user = p.user
+    faves = p.favourite.all()
+
+    context = {
+        'p_user': current_user,
+        'faves': faves,
+        'p': p
+    }
+
+    return render(request, 'users/profile_favourites.html', context)

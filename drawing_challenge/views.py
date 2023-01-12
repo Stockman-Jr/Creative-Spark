@@ -39,12 +39,13 @@ class PostList(ListView, ModelFormMixin):
 
         approved_posts = Post.objects.filter(approved=True)
 
-        liked = [i for i in Post.objects.all() if Like.objects.filter(user=self.request.user, post=i)]
-        faved = [i for i in Post.objects.all() if Profile.objects.filter(user=self.request.user, favourite=i)]
+        if self.request.user.is_authenticated:
+            liked = [i for i in Post.objects.all() if Like.objects.filter(user=self.request.user, post=i)]
+            faved = [i for i in Post.objects.all() if Profile.objects.filter(user=self.request.user, favourite=i)]
 
-        context['form'] = self.form
-        context['post_liked'] = liked
-        context['faved'] = faved
+            context['form'] = self.form
+            context['post_liked'] = liked
+            context['faved'] = faved
         context['approved_posts'] = approved_posts
         return context
      
