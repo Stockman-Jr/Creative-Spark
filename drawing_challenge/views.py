@@ -15,6 +15,9 @@ from django.contrib import messages
 
 
 class ChallengeList(ListView):
+    """
+    Home page view, displays a list of all challenges
+    """
     model = Challenge
     template_name = 'index.html'
     queryset = Challenge.objects.all()
@@ -23,6 +26,10 @@ class ChallengeList(ListView):
 
 
 class PostList(ListView, ModelFormMixin):
+    """
+    View for all upploaded posts in corresponding challenges,
+    also renders the comment form
+    """
     model = Post
     template_name = 'post_list.html'
     form_class = CommentForm
@@ -34,7 +41,7 @@ class PostList(ListView, ModelFormMixin):
 
         return ListView.get(self, request, *args, **kwargs)
 
-    def get_context_data(self, *args, **kwargs):   
+    def get_context_data(self, *args, **kwargs): 
         context = super(PostList, self).get_context_data(*args, **kwargs)
 
         approved_posts = Post.objects.filter(approved=True)
@@ -48,13 +55,16 @@ class PostList(ListView, ModelFormMixin):
             context['faved'] = faved
         context['approved_posts'] = approved_posts
         return context
-     
+
     def get_queryset(self):
         return Post.objects.filter(challenge__challenge_prompt=self.kwargs['challenge'])
 
 
 @login_required
 def post(request):
+    """
+    View to handle user post submissions
+    """
     post_form = PostForm()
 
     if request.method == 'POST':
@@ -66,7 +76,7 @@ def post(request):
         messages.add_message(request, messages.SUCCESS, 'Submit sucessful, awaiting approval!')
         form.save()
         return redirect('home')
-    
+
     challenge = Challenge.objects.all()[0]
     post_form = PostForm(initial={'challenge': challenge})
     return render(request, 'post_upload.html', context={'post_form': post_form})
@@ -74,6 +84,9 @@ def post(request):
 
 @login_required
 def delete_post(request, pk):
+    """
+    Handles deletion of user uploaded posts
+    """
     post = get_object_or_404(Post, pk=pk)
     if request.user == post.author:
         Post.objects.filter(pk=pk).delete()
@@ -83,6 +96,9 @@ def delete_post(request, pk):
 
 
 def post_detail(request):
+    """
+    View to handle comments through ajax
+    """
     is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest'
     postid = (request.POST.get('post_id'))
     post = get_object_or_404(Post, pk=postid)
@@ -105,7 +121,9 @@ def post_detail(request):
 
 
 def like(request):
-
+    """
+    View to handle likes through ajax
+    """
     post_id = request.GET.get("likeId", "")
     user = request.user
     post = Post.objects.get(pk=post_id)
@@ -126,6 +144,9 @@ def like(request):
 
 @login_required
 def add_favourite(request, pk):
+    """
+    View that handles adding and removing posts to favourites
+    """
     user = request.user
     post = get_object_or_404(Post, pk=pk)
     profile = Profile.objects.get(user=user)

@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def profile_view(request, slug):
+    """
+    General profile view for all users
+    """
     Profile.objects.get_or_create(user=request.user)
     p = Profile.objects.filter(slug=slug).first()
     p_user = p.user
@@ -25,6 +28,9 @@ def profile_view(request, slug):
 
 @login_required
 def my_profile(request):
+    """
+    Personal profile view for logged in user
+    """
     Profile.objects.get_or_create(user=request.user)
     p = request.user.profile
     current_user = p.user
@@ -42,6 +48,9 @@ def my_profile(request):
 
 @login_required
 def favourite_list(request, slug):
+    """
+    General view for user profile's favourites
+    """
     Profile.objects.get_or_create(user=request.user)
     p = Profile.objects.filter(slug=slug).first()
     p_user = p.user
@@ -58,6 +67,9 @@ def favourite_list(request, slug):
 
 @login_required
 def my_favourites(request):
+    """
+    Personal view for logged in user's favourites
+    """
     Profile.objects.get_or_create(user=request.user)
     p = request.user.profile
     current_user = p.user

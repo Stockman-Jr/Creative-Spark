@@ -3,63 +3,64 @@
 {% block content %}
 <div class=" py-5">
   <div class="container">
-
+  <!--USER POSTS-->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       {% for post in approved_posts %}
-   <!--USER POSTS-->
-   <div class="col">
+      <div class="col">
 
-    <div class="card shadow-sm">
-    
-      <a href="#postDetailModal{{post.pk}}" data-bs-toggle="modal" class="effect">
-        <img src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="">
-        <span><i class="fa-solid fa-magnifying-glass"></i></span>
-        <div class="overlay hover-overlay"></div>
-      </a>
-    
+        <div class="card shadow-sm">
+          <!--MODAL LINK TO POST DETAIL/FULL POST VIEW-->
+          <a href="#postDetailModal{{post.pk}}" data-bs-toggle="modal" class="effect">
+            <img src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="">
+            <span><i class="fa-solid fa-magnifying-glass"></i></span>
+            <div class="overlay hover-overlay"></div>
+          </a>
 
-      <div class="card-body">
-        <p class="card-text text-center">{{ post.title }}</p>
-        <hr>
-        <div class="d-flex align-items-center">
-          <div class="card_avatar flex-grow-1">
-            <a href="{{ post.author.profile.get_absolute_url }}">
-              <img src="{{ request.user.profile.image.url }}" alt=""></a>
-            <span>
-              <strong>
-                <a href="{{ post.author.profile.get_absolute_url }}">{{ post.author }}</a>
-              </strong>
-            </span>
+          <div class="card-body">
+            <p class="card-text text-center">{{ post.title }}</p>
+            <hr>
+            <div class="d-flex align-items-center">
+              <div class="card_avatar flex-grow-1">
+                <a href="{{ post.author.profile.get_absolute_url }}">
+                  <img src="{{ request.user.profile.image.url }}" alt=""></a>
+                <span>
+                  <strong>
+                    <a href="{{ post.author.profile.get_absolute_url }}">{{ post.author }}</a>
+                  </strong>
+                </span>
+              </div>
+              <!--LIKE SECTION-->
+              <div class="like" id="{{ post.id }}">
+                {% if post in post_liked %}
+                  <span class="like-btn" id="{{ post.pk }}">
+                    <a href="{% url 'post_like' %}" id="likeBtn{{ post.pk }}" class="liked"><i
+                        class="fas fa-heart list-like"></i></a>
+                    <span class="like-count{{ post.pk }}">{{ post.likes.count }}</span>
+                  </span>
+                {% else %}
+                  <span class="like-btn">
+                    <a href="{% url 'post_like' %}" id="likeBtn{{ post.id }}" class="unliked"><i
+                        class="fas fa-heart list-like"></i></a>
+                    <span class="like-count{{ post.id }}">{{ post.likes.count}}</span>
+                  </span>
+                {% endif %}
+              </div>
+
+            </div>
           </div>
-          <div class="like" id="{{ post.id }}">
-            {% if post in post_liked %}
-                <span class="like-btn" id="{{ post.pk }}">
-                <a href="{% url 'post_like' %}" id="likeBtn{{ post.pk }}" class="liked"><i class="fas fa-heart list-like"></i></a>
-                <span class="like-count{{ post.pk }}">{{ post.likes.count }}</span>
-              </span> 
-              {% else %}
-              <span class="like-btn">
-                <a href="{% url 'post_like' %}" id="likeBtn{{ post.id }}" class="unliked"><i class="fas fa-heart list-like"></i></a>
-                <span class="like-count{{ post.id }}">{{ post.likes.count}}</span>
-              </span>
-          {% endif %}
-         </div>
-
         </div>
       </div>
-    </div>
-  </div> 
 
 {% block box %}
   {% include 'post_detail.html' %}
 {% endblock %}
 
 {% endfor %}
-
-</div>
+  </div>
 </div>
 
 {% block js %}
+<!--AJAX HANDLING OF COMMENTS AND LIKES-->
 <script>
   $(document).ready(function () {
   $(".comment_form").on("submit", function (e) {
@@ -84,7 +85,7 @@
                 <h5>${response["name"]}</h5> 
                 <p>${response["content"]}</p>`)
          }
-     });
+    });
  });
 });
 
@@ -117,12 +118,9 @@ $(function() {
             $('.like-count' + id).text(res)
 
           },
-        
-
         });
-
     });
-    });
+  });
 </script>
 {% endblock js %}
 

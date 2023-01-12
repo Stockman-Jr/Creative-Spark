@@ -19,75 +19,85 @@
     <!--NAVIGATION-->
     <header>
       <div class="bg-image"></div>
+      <!--LOGGED IN USER MENU-->
       {% if user.is_authenticated %}
-      <div class="dropdown user-profile-menu card_avatar position-absolute top-0 end-0">
-        <a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"><img src="{{ request.user.profile.image.url }}" alt=""></a>
-        <ul class="dropdown-menu">
-          <li><h6 class="dropdown-header text-center">{{ request.user.username }}</h6></li>
-          <hr>
-          <li><a class="dropdown-item" href="{% url 'my_profile' %}">Your posts</a></li>
-          <li><a class="dropdown-item" href="#">Favourites</a></li>
-          <li><a class="dropdown-item" href="#">View All</a></li>
-        </ul>
-      </div>
+        <div class="dropdown user-profile-menu card_avatar position-absolute top-0 end-0">
+          <a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"><img
+              src="{{ request.user.profile.image.url }}" alt=""></a>
+          <ul class="dropdown-menu">
+            <li>
+              <h6 class="dropdown-header text-center">{{ request.user.username }}</h6>
+            </li>
+            <hr>
+            <li><a class="dropdown-item" href="{% url 'my_profile' %}">Your posts</a></li>
+            <li><a class="dropdown-item" href="#">Favourites</a></li>
+            <li><a class="dropdown-item" href="#">View All</a></li>
+          </ul>
+        </div>
       {% endif %}
-    
-        <div class="intro-text">
-      <h1>CreativeSpark <a class="logo" href="#"><i class="fa-solid fa-paintbrush"></i></a> </h1> 
+
+      <div class="intro-text">
+        <h1>CreativeSpark <a class="logo" href="#"><i class="fa-solid fa-paintbrush"></i></a> </h1>
       </div>
-       
+
       <div class="custom-shape-divider-top-1670413545">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z" class="shape-fill"></path>
+          <path d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+            class="shape-fill"></path>
         </svg>
-        
-    </div>
+
+      </div>
       <nav class="navbar navbar-expand-sm bottom-middle d-flex justify-content-center">
-            <ul class="nav nav-tabs nav-fill hidden" >
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Drawing Challenge</a>
-              </li>
-              {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-              </li>
-              {% else %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Signup</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-              </li>
-              {% endif %}
-            </ul>
+        <ul class="nav nav-tabs nav-fill hidden">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Drawing Challenge</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_signup' %}">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+            </li>
+          {% endif %}
+        </ul>
       </nav>
-    <!--Collapsed Navbar-->
-      <nav class="navbar col_nav fixed-top">
+      <!--Collapsed Navbar-->
+    <nav class="navbar col_nav fixed-top">
       <div class="container d-sm-none">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon "></span>
-      </button>
-    <div class="collapse navbar-collapse flex-column" id="navbarText">
-            <ul class="nav text-center">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon "></span>
+          </button>
+        <div class="collapse navbar-collapse flex-column" id="navbarText">
+          <ul class="nav text-center">
               <li class="dropdown-item">
                 <a class="nav-link col-link" aria-current="page" href="#">Home</a>
               </li>
-              <li><hr class="dropdown-divider"></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
               <li class="dropdown-item">
                 <a class="nav-link col-link" href="#">Drawing Challenge</a>
               </li>
-              <li><hr class="dropdown-divider"></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
               <li class="dropdown-item">
                 <a class="nav-link col-link" href="#">Signup/Login</a>
               </li>
-            </ul>
-          </div>   
-      </nav>   
-    </header>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
 
     <div class="container">
       <div class="row">

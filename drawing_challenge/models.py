@@ -6,6 +6,7 @@ from django.urls import reverse
 
 
 class Challenge(models.Model):
+    """ Drawing Challenges Model """
     title = models.CharField(max_length=200)
     challenge_prompt = models.CharField(max_length=500, unique=True)
     featured_image = CloudinaryField('image')
@@ -22,6 +23,7 @@ class Challenge(models.Model):
 
 
 class Post(models.Model):
+    """User Post Model"""
     challenge = models.ForeignKey(Challenge, on_delete=models.CASCADE, related_name='challenges')
     title = models.CharField(max_length=200)
     caption = models.CharField(max_length=1000, blank=True)
@@ -39,12 +41,13 @@ class Post(models.Model):
 
     def number_of_likes(self):
         return self.liked.count()
-    
+
     def get_absolute_url(self):
         return reverse('post_detail', kwargs={'pk': self.pk})
 
 
 class Comment(models.Model):
+    """Model user created comments"""
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     content = models.TextField(max_length=800)
     name = models.CharField(max_length=50)
@@ -58,6 +61,6 @@ class Comment(models.Model):
 
 
 class Like(models.Model):
+    """Model for liking posts"""
     user = models.ForeignKey(User, related_name='likes', on_delete=models.CASCADE)
     post = models.ForeignKey(Post, related_name='likes', on_delete=models.CASCADE)
-

@@ -5,9 +5,7 @@
         <div class="modal-content">
             <div class="modal-header flex-row d-flex justify-content-between">
                 <div class="card_avatar">
-
                     <img src="{{ request.user.profile.image.url }}" alt="">
-
                     <span>
                         <a href="#">Art by: {{ post.author }}</a>
                     </span>
@@ -27,19 +25,18 @@
                                 <span>{{ post.challenge.challenge_prompt }}</span>
                                 <hr>
                                 <span>Likes: {{ post.likes.count }} <br> Posted: {{ post.date_posted }}</span>
-            
-
-
                             </div>
                             <hr>
                             {% if post in faved %}
-                            <div class="action">
-                              <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}"   type="button" class="btn btn-light"><i class="fa-solid fa-star fav"></i> Favorited</a>
-                            </div>
+                                <div class="action">
+                                    <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}" type="button"
+                                        class="btn btn-light"><i class="fa-solid fa-star fav"></i> Favorited</a>
+                                </div>
                             {% else %}
-                            <div class="action">
-                              <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}"   type="button" class="btn btn-light"><i class="fa-solid fa-star unfav"></i>Favorite</a>
-                            </div>
+                                <div class="action">
+                                    <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}" type="button"
+                                        class="btn btn-light"><i class="fa-solid fa-star unfav"></i>Favorite</a>
+                                </div>
                             {% endif %}
                         </div>
                         <hr>
@@ -50,7 +47,7 @@
 
 
             <div id="form-modal-footer" class="modal-footer">
-            <!--COMMENTS-->
+                <!--COMMENTS-->
                 <div class="container">
                     <div class="row">
                         <h6 class="text-center">Comments:</h6>
@@ -58,10 +55,10 @@
                             <h6>Comments:</h6>
                             <div class="card-body comment">
                                 {% for comment in post.comments.all %}
-                                <div id='comment-box'>
-                                    <h6 class="c-name">{{ comment.name }}:</h6>
-                                    <p class="c-content">{{ comment.content }}</p>
-                                </div>
+                                    <div id='comment-box'>
+                                        <h6 class="c-name">{{ comment.name }}:</h6>
+                                        <p class="c-content">{{ comment.content }}</p>
+                                    </div>
                                 {% endfor %}
                             </div>
                         </div>
@@ -70,7 +67,6 @@
 
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
