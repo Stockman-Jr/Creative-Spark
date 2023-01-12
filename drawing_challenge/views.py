@@ -71,6 +71,15 @@ def post(request):
     post_form = PostForm(initial={'challenge': challenge})
     return render(request, 'post_upload.html', context={'post_form': post_form})
 
+@login_required
+def delete_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.user == post.author:
+        Post.objects.filter(pk=pk).delete()
+        messages.success(request, 'Post successfully deleted!')
+    else:
+        return redirect(reverse('my_profile'))
+
 
 def post_detail(request):
     is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest'
