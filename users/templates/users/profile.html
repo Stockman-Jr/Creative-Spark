@@ -60,11 +60,37 @@
             <img class="img-fluid artwork" src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="">
             <div class="card-footer post-info">
                 <div class="info-text">
-                    <p>Challenge: {{ post.challenge.challenge_prompt }}</p>
-                    <span>Likes: {{ post.likes.count }}</span>
+                    <p><strong>Challenge:</strong> {{ post.challenge.challenge_prompt }}</p>
+                    <p><strong>Likes:</strong> {{ post.likes.count }}</p>
+                </div>
+                <div class="delete-post">
+                    {% if user.is_authenticated and post.author == request.user%}
+                    <a href="#deletePost{{ post.pk }}" data-bs-toggle="modal"><i class="fa-solid fa-trash-can"></i></a>
+                    {%endif%}
                 </div>
             </div>
         </div>
+        <!--DELETE POST MODAL-->
+        <div class="modal fade" id="deletePost{{ post.pk }}" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content mx-3">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="staticBackdropLabel">Are you sure?</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="muted-text">
+                            This will remove your post permanetly.
+                        </p>
+                    </div>
+                    <div class="modal-footer mt-1">
+                        <a href="{% url 'delete_post' post.pk %}" class="btn btn-danger mx-auto mt-2">Delete Post</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
     {% endfor %}
