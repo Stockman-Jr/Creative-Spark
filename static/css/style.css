@@ -353,17 +353,53 @@ color: rgb(13, 91, 94);
 }
 
 /* USER PROFILES */
+/*USER PROFILE*/
+
 .post-gallery {
   max-width: 50%;
+  margin-top: 20px;
 }
 .post-wrapper {
-  border: 2px solid #107a7e;
+  /*border: 5px solid rgba(16, 122, 126, 0.8);*/
   border-radius: 5px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .post-info {
   border-top: 2px solid #107a7e;
 
+}
+
+.info-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.user-nav {
+  background-color: rgba(26,27,54, 0.95)
+}
+
+.user-gallery {
+  margin-top: 50px;
+  background-color: rgb(236, 234, 234);
+}
+
+.pill-color  .active a{
+background-color: #eef773;
+color: #023638;
+font-weight: 700;
+}
+
+.delete-post i {
+  color: #023638;
+  margin-bottom: 10px;
+  text-align: right;
+  font-size: 18px;
+}
+
+.delete-post i:hover {
+  color: #07a07f;
 }
 
 .info-text {

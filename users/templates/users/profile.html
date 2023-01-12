@@ -4,31 +4,35 @@
 <!-- PROFILE NAV -->
 <div class="d-flex flex-row flex-shrink-0 p-3 text-white user-nav">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <span class="fs-4 card-avatar align-middle"> 
-            <img src="{{ u.profile.image.url }}" alt="" srcset="">
-            {{ u.username }}'s Profile
+        <span class="fs-4 card-avatar align-middle">
+            {% if "default.png" in p_user.profile.image.url %} 
+                <img src="{% static '/imgs/default.png' %}" alt="" srcset="">
+            {% elif p_user.profile.image %}
+                <img src="{{ p_user.profile.image.url }}" alt="" srcset="">
+            {% endif %}
+            {{ p_user.username }}'s Profile
         </span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-row mb-auto pill-color">
         {% if '/users/' in request.path %}
-            <li>
+            <li class="active">
                 <a href="{% url 'user_profile' p.slug %}" class="nav-link ">
                     Post Gallery
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="{% url 'favourite_list' p.slug %}" class="nav-link ">
                     Favourites Gallery
                 </a>
             </li>
         {% elif '/my-profile/' in request.path %}
-            <li>
+            <li class="active">
                 <a href="{% url 'my_profile' %}" class="nav-link  ">
                     Post Gallery
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="{% url 'my_favourites' %}" class="nav-link ">
                     Favourites Gallery
                 </a>
