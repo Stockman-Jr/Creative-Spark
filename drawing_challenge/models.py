@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from PIL import Image
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
+from datetime import date, timedelta
 
 
 class Challenge(models.Model):
@@ -17,6 +18,10 @@ class Challenge(models.Model):
 
     def __str__(self):
         return self.challenge_prompt
+    
+    @property
+    def is_expired(self):
+        return (self.date_created.date() + timedelta(days=2)) > date.today()
 
     def get_absolute_url(self):
         return reverse("post_list")

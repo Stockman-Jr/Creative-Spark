@@ -16,6 +16,7 @@
 <!--Daily Challenges-->
 <div class="container-xl challenge-card">
     {% for challenge in challenge_list %}
+    {% if challenge.is_expired %}
       <div class="card challenge-card">
              
         <div class="challenge-img" style="background-image:url('{{ challenge.featured_image.url }}');">
@@ -25,12 +26,16 @@
 
             <div class="row">
               <div class="col-12">
-                <span class="badge rounded-pill"><small>Daily Challenge</small></span>
-                {% now "Y-m-d" as todays_date %}
-                {% if todays_date == challenge.date_created %}
-                  <span class="badge rounded-pill"><small>NEW!</small></span>
-                {% endif %}
-              </div>
+            {% if today|date:"Y m d" == challenge.date_created|date:"Y m d" %}
+              <span class="badge rounded-pill"><small>Daily Challenge</small></span>
+              <span class="badge rounded-pill"><small>NEW! {{ today|date:"j/n" }}</small></span>
+              <span>{{ challenge.date_created|timesince }}</span>
+
+            {% else %}
+              <span class="badge rounded-pill"><small>Daily Challenge</small></span>
+              <span>{{ challenge.date_created|timesince }}</span>
+            {% endif %}
+            </div>
               <div class="col">
                 <p class="h4 text-center">{{ challenge.title }}</p>
                 <h3 class="challenge-prompt text-center">{{ challenge.challenge_prompt }}</h3>
@@ -45,6 +50,7 @@
           <a class="btn btn-lg btn-light ms-4" href="{% url 'create_post' %}" role="button">Submit</a>
         </div>
       </div>
+    {% endif %}
     {% endfor %}
   </div>
   {% if is_paginated %}

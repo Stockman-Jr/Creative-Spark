@@ -12,6 +12,7 @@ from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.contrib import messages
+from django.utils.timezone import now
 
 
 class ChallengeList(ListView):
@@ -23,6 +24,13 @@ class ChallengeList(ListView):
     queryset = Challenge.objects.all()
     ordering = ["-date_created"]
     paginate_by = 6
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ChallengeList, self).get_context_data(*args, **kwargs)
+        today = now().date()
+
+        context['today'] = today
+        return context
 
 
 class PostList(ListView, ModelFormMixin):
