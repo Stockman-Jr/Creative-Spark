@@ -33,6 +33,14 @@ class ChallengeList(ListView):
         return context
 
 
+class PastChallengeList(ListView):
+    model = Challenge
+    template_name = 'past_challenges.html'
+    queryset = Challenge.objects.all()
+    ordering = ["-date_created"]
+    paginate_by = 6
+
+
 class PostList(ListView, ModelFormMixin):
     """
     View for all upploaded posts in corresponding challenges,

@@ -47,8 +47,8 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.liked.count()
 
-    def get_absolute_url(self):
-        return reverse('post_detail', kwargs={'pk': self.pk})
+    #def get_absolute_url(self):
+    #    return reverse('post_detail', kwargs={'pk': self.pk})
 
 
 class Comment(models.Model):
