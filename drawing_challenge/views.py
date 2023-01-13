@@ -2,8 +2,9 @@ import json
 from django.forms import model_to_dict
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView
+from django.views.generic import ListView, UpdateView
 from django.views.generic.edit import ModelFormMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from .models import Challenge, Post, Comment, Like
 from users.models import Profile
@@ -96,6 +97,26 @@ def post(request):
     challenge = Challenge.objects.filter(status='Active')[0]
     post_form = PostForm(initial={'challenge': challenge})
     return render(request, 'post_upload.html', context={'post_form': post_form})
+
+
+class PostUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Post
+    fields = ['title', 'caption']
+    template_name = 'post_update.html'
+
+    def get_success_url(self):
+        view_name = 'my_profile'
+        return reverse(view_name)
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
 
 
 @login_required

@@ -10,11 +10,18 @@ class CommentAdmin(admin.ModelAdmin):
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     model = Post
-    list_display = ('title', 'caption', 'image_post', 'challenge', 'approved')
+    list_display = ('title', 'likes_count', 'challenge', 'approved')
     list_filter = [
         ('approved', admin.BooleanFieldListFilter),
     ]
     actions = ['approve_submission']
+
+    def likes_count(self, obj):
+        return len(obj.likes.all())
+    likes_count.short_description = 'Likes'
+
+    def get_queryset(self, *args, **kwargs):
+        return super().get_queryset(*args, **kwargs).prefetch_related('likes')
 
     def approve_submission(self, request, queryset):
         queryset.update(approved=True)
@@ -28,11 +35,8 @@ class PostInline(admin.TabularInline):
 
 class ChallengePostsAdmin(admin.ModelAdmin):
     inlines = [PostInline,]
-    list_display = ('challenge_prompt', 'featured_image', 'date_created', 'get_is_active')
-
-    def get_is_active(self, obj):
-        return obj.is_active
-    get_is_active.boolean = True
+    list_display = ('challenge_prompt', 'featured_image', 'date_created')
+    list_display = ('challenge_prompt', 'title', 'date_created', 'status')
 
 
 admin.site.register(Challenge, ChallengePostsAdmin)
