@@ -5,6 +5,11 @@ from cloudinary.models import CloudinaryField
 from django.urls import reverse
 from datetime import date, timedelta
 
+STATUS = [
+        ('Active', 'Active'),
+        ('Inactive', 'Inactive')
+        ]
+
 
 class Challenge(models.Model):
     """ Drawing Challenges Model """
@@ -12,6 +17,7 @@ class Challenge(models.Model):
     challenge_prompt = models.CharField(max_length=500, unique=True)
     featured_image = CloudinaryField('image')
     date_created = models.DateTimeField(auto_now=True)
+    status = models.CharField(max_length=10, choices=STATUS, default='Active')
 
     class Meta:
         ordering = ['-date_created']
@@ -21,7 +27,10 @@ class Challenge(models.Model):
 
     @property
     def is_active(self):
-        return (self.date_created.date() + timedelta(days=2)) > date.today()
+        if (self.date_created.date() + timedelta(days=2)) > date.today():
+            return self.status == 'Active'
+        else:
+            return self.status == 'Inactive'
 
     def get_absolute_url(self):
         return reverse("post_list")
@@ -35,7 +44,7 @@ class Post(models.Model):
     image_post = models.ImageField(upload_to='post_images')
     date_posted = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    liked = models.ManyToManyField(User, related_name='post_likes', blank=True)
+    #liked = models.ManyToManyField(User, related_name='post_likes', blank=True)
     approved = models.BooleanField(default=False)
 
     class Meta:
@@ -44,8 +53,8 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def number_of_likes(self):
-        return self.liked.count()
+    def likes_count(self):
+        return self.likes.count()
 
 
 class Comment(models.Model):

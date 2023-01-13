@@ -23,7 +23,7 @@ class PostAdmin(admin.ModelAdmin):
 class PostInline(admin.TabularInline):
     model = Post
     extra = 0
-    readonly_fields = ['author', 'title', 'caption', 'image_post', 'liked']
+    readonly_fields = ['author', 'title', 'caption', 'image_post']
 
 
 class ChallengePostsAdmin(admin.ModelAdmin):

@@ -93,7 +93,7 @@ def post(request):
         form.save()
         return redirect('home')
 
-    challenge = Challenge.objects.all()[0]
+    challenge = Challenge.objects.filter(status='Active')[0]
     post_form = PostForm(initial={'challenge': challenge})
     return render(request, 'post_upload.html', context={'post_form': post_form})
 
