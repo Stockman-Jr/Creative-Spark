@@ -59,6 +59,7 @@
                 <div class="delete-post">
                     {% if user.is_authenticated and post.author == request.user%}
                     <a href="#deletePost{{ post.pk }}" data-bs-toggle="modal"><i class="fa-solid fa-trash-can"></i></a>
+                    <a href="{% url 'update_post' post.pk %}"><i class="fa-solid fa-pen-to-square"></i></a>
                     {%endif%}
                 </div>
             </div>

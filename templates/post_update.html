@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class='row justify-content-center' >
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy}}
+        <input type='submit' value='Update Post'>
+    </form>
+</div>
+
+
+
+{%endblock%}
