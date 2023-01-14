@@ -12,6 +12,7 @@ Join the community and get tons of inspiration by participating in our drawing c
 
 * [User Stories](#user-stories)
 * [Agile Methodology](#agile-methodology)
+* [Design](#design)
 * [Features](#features)
     * [Existing Features](#existing-features)
     * [Future Features](#future-features)
@@ -56,10 +57,18 @@ Join the community and get tons of inspiration by participating in our drawing c
 - - -
 
 # Agile Methodology
+An agile approach was implemented for this project with a Github projects kanban board which can be found [here]().
+
+An issue template was created for adding User Stories. Each User Story was added with a label of priority using the: **Must Have**, **Should Have** or **Could Have**.
+
+For some of the User Stories an acceptance criteria was also added using the: **Given**, **When**, **Then**, **And** statements.
 
 ---
-## Features
-  
+
+# Design
+
+---
+# Features
 
 ### Existing Features
 
