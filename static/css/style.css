@@ -143,11 +143,11 @@
   }
 
 
-  /*INTRO*/
+  /*INTRO #d6dbdb*/
 
 .introduction {
   margin-top: 40px;
-  background-color: #d6dbdb;
+  background-color: #e6e6e6;
   padding: 20px;
   font-weight: 700;
 }
@@ -156,6 +156,22 @@
     padding-left: 20px;
     padding-right: 20px;
     font-weight: 700;
+  }
+
+  .lead {
+    color: #107a7e;
+font-weight: 600;
+  }
+
+  .past-shortcut {
+    color:#023638;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .past-shortcut:hover {
+    color: #107a7e;
   }
 
 

@@ -59,24 +59,50 @@ Join the community and get tons of inspiration by participating in our drawing c
 
 ---
 ## Features
+  
 
 ### Existing Features
 
 #### Landing Page
+  * The landing page features the header with navigation links, text with introduction to the website and a list of active challenges the users can participate in.
 
 
 #### Navigation
+  * The navigation is simple but also provides the user with many options to navigate the page, and is passed down to all pages of the application through base.html.
+  * For an unauthenticated user the navigation is in the header, featuring "Home", "Browse Art" with a dropdown link to inactive challenges, "Sign Up" and "Sign in".
+    For an authenticated user, the same navigation menu is available except "Sign out" is available instead of "Sign Up/Sign In".
+    This navigation is also responsive as it collapses on small screens.
+  * Authenticated users will also have a user navigation available to them on all pages, displaying their profile picture with a dropdown menu in the right corner of the page.
+    This user menu includes "Your Posts" and "Favourites", which navigates the user to their profile page.
 
 
 
 #### Challenges
+  * Challenges are displayed in bootstrap cards with a featured image, the drawing prompt and one or two button links.
+  The cards provides the user with simple but clear information about the drawing challenge.
+  * All challenges are open for submissions for 48 hours from the moment they are posted. The active challenges are displayed in the "Home" page, and the inactive challenges are displayed in the "Past Challenges" page.
+  * An active challenge will display a badge with the text display with "New" and todays date if the challenge was posted the same day as the current date.
+  Since challenges are time constrained, info about how much time has passed since it was posted will also be provided for the user.
+  The button link "Browse Art" will direct the user to a page showing all the posts uploaded in that particular challenge, 
+  and the link with "Submit" will direct to user to the post submission form.
+  * Inactive challenges are available for users to browse in the "Past Challenges" page with similar but less information.
+  The submit button will not be available as users cannot participate in inactive challenges.
 
 
 #### Browsing Artwork
 
 #### User Profiles
+  * Registered members will have access to their own profile page, well as    
+   other users profile pages.
+  * The logged in users personal profile page is accessible in the user menu in the top corner, and links to other users profile pages are provided throughout the application. 
+  For example when looking at your or others facourite posts, browsing posts and viewing full posts.
+  * All profile pages includes a simple navigation with links to two galleries, a gallery displaying the users uploaded posts and one to show the users favourited posts.
+  * The logged in users personal profile page will include two interactable icon links, 
+  a trashcan which allows the user to delete their posts and an edit icon which allows the user to update their post.
+  * The purpose of profile pages are to allow easy access to the users uploaded content to view, edit and delete
 
 ### Future Features
+  * If provided more time, I would have wanted to create a "Winners" page, which would feature the most liked posts from every drawing challenge that's ended.
 
 
 
