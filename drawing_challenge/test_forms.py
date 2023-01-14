@@ -3,6 +3,8 @@ from .forms import PostForm, CommentForm
 
 
 class TestCommentForm(TestCase):
+    """ Test to ensure comment content field is required """
+    
     def test_content_field_is_required(self):
         form = CommentForm({'content': ''})
         self.assertFalse(form.is_valid())
@@ -11,6 +13,8 @@ class TestCommentForm(TestCase):
 
 
 class TestPostForm(TestCase):
+    """ Test to ensure required fields in post form are required """
+
     def test_title_field_is_required(self):
         form = PostForm({'title': ''})
         self.assertFalse(form.is_valid())
