@@ -33,7 +33,7 @@
             {% if today|date:"Y m d" == challenge.date_created|date:"Y m d" %}
               <span class="badge rounded-pill"><small>Daily Challenge</small></span>
               <span class="badge rounded-pill"><small>NEW! {{ today|date:"j/n" }}</small></span>
-              <span>{{ challenge.date_created|timesince }}</span>
+              <span class="col-sm-12">{{ challenge.date_created|timesince }}</span>
 
             {% else %}
               <span class="badge rounded-pill"><small>Daily Challenge</small></span>

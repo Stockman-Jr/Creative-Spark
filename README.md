@@ -155,9 +155,25 @@ No known unsolved bugs.
 ## Technologies Used
 
 ### Main Languages
+  * HTML 5
+  * CSS3
+  * JavaScript
+  * Python
   
 
 ### Frameworks, Libraries & Programs
+  * Django - Main python framework used to to develop the application
+  * JQuery - Was used in combination with AJAX to read, update and send data for comments and likes.
+  * Bootstrap - For designing the html templates and speeding up the process of creating a responsive site.
+  * [GitHub](https://github.com/) - To save and store files for the website.
+  * Git - For version control.
+  * [Fontawesome](https://fontawesome.com/) - For adding icons.
+  * [Google Fonts](https://fonts.google.com/)
+  * [Heroku](https://www.heroku.com/) - For deploying the project
+  * [Am I Responsive?](https://ui.dev/amiresponsive) - To display website on different devices.
+  * [ElephantSQL]() - Was used as the database for this project
+  * [Cloudinary](https://cloudinary.com/) - For hosting media files
+
 
 ---
 
