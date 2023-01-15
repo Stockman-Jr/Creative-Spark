@@ -98,12 +98,22 @@ For some of the User Stories an acceptance criteria was also added using the: **
   The submit button will not be available as users cannot participate in inactive challenges.
 
 
-#### Browsing Artwork
+#### Browsing Artwork / Post List
+  * When the user clicks the "Browse Artwork" link on a challenge, they will be redirected to a page displaying all the posts submitted to that challenge.
+  * All user posts are displayed in bootstrap cards, and features the artwork, like button with like count, as well as information about the post.
+  * Provided that the user is authenticated, they can interact with the like button to like or unlike a post and view the creator of the post's profile page by clicking on the avatar/username.
+  * Hovering over the post's image will display a magnifying glass, and allows the user to view the full post by clicking on it.
+
+#### Full post view
+  * The full view of the post is displayed in a bootstrap modal, and features a larger preview of the artwork, more information, a favourite button and a comment section.
+  * Provided that the user is authenticated, they can add a post to favourites by clicking on the favourite button. The user can also view and add comments.
+  * Comments will be displayed directly upon submit without page refresh.
+  * If user is not authenticated, they can view comments for that posts but the comment form is replaced with text including links to sign in page and sign up page.
 
 #### User Profiles
   * Registered members will have access to their own profile page, well as    
    other users profile pages.
-  * The logged in users personal profile page is accessible in the user menu in the top corner, and links to other users profile pages are provided throughout the application. 
+  * The logged in users personal profile page is accessible in the user menu in the top right corner, and links to other users profile pages are provided throughout the application. 
   For example when looking at your or others facourite posts, browsing posts and viewing full posts.
   * All profile pages includes a simple navigation with links to two galleries, a gallery displaying the users uploaded posts and one to show the users favourited posts.
   * The logged in users personal profile page will include two interactable icon links, 
