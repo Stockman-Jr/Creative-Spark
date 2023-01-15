@@ -5,8 +5,8 @@
 <!--INTRODUCTION-->
 <div class="row d-flex justify-content-center introduction">
   <div class="col-xl-8 col-sm-12 intro">
-    <p class="lead text-center">Welcome to CreativeSpark! <br> 
-      A place for artists of all skill levels to get inspiration and hone their drawing skills!</p>
+    <p class="lead text-center">Welcome to CreativeSpark! <br> </p>
+      <p class="text-center hidden">A place for artists of all skill levels to get inspiration and hone their drawing skills!</p>
 
       <p class="text-center">We provide a new drawing challenge everyday, which will be open for submissions for 48hours.<br>  
         Join the community to participate in drawing challenges, get inspired by other artists and improve while having fun!</p>
@@ -29,7 +29,7 @@
           <div class="card-body bg-overlay d-flex flex-column">
 
             <div class="row">
-              <div class="col-12">
+              <div class="col-12 stack-sm-col">
             {% if today|date:"Y m d" == challenge.date_created|date:"Y m d" %}
               <span class="badge rounded-pill"><small>Daily Challenge</small></span>
               <span class="badge rounded-pill"><small>NEW! {{ today|date:"j/n" }}</small></span>
@@ -40,7 +40,7 @@
               <span>{{ challenge.date_created|timesince }}</span>
             {% endif %}
             </div>
-              <div class="col">
+              <div class="col challenge-info">
                 <p class="h4 text-center">{{ challenge.title }}</p>
                 <h3 class="challenge-prompt text-center">{{ challenge.challenge_prompt }}</h3>
               </div>
@@ -50,8 +50,8 @@
         </div>
 
         <div class="footer-c challenge-btns d-flex justify-content-center">
-          <a class="btn btn-lg btn-light" href="{% url 'post_list' challenge.challenge_prompt %}" role="button">Browse Artwork</a>
-          <a class="btn btn-lg btn-light ms-4" href="{% url 'create_post' %}" role="button">Submit</a>
+          <a class="btn btn-md btn-light" href="{% url 'post_list' challenge.challenge_prompt %}" role="button">Browse Artwork</a>
+          <a class="btn btn-md btn-light ms-4" href="{% url 'create_post' %}" role="button">Submit</a>
         </div>
       </div>
     {% endif %}

@@ -102,6 +102,9 @@
   .user-profile-menu {
     margin-right: 15px;
     margin-top: 10px;
+    top: 0;
+    right: 0;
+    position: absolute;
     z-index: 4;
   }
   
@@ -519,6 +522,27 @@ font-weight: 700;
   .intro-text h1 a {
     font-size: 120%;
   }
+  .dropdown > .dropdown-toggle {
+    color: #fff;
+  }
+
+  .user-profile-menu {
+    top: 80%!important;
+  }
+
+  .bg-overlay {
+    height: 80px;
+  }
+
+  .stack-sm-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .challenge-info {
+    margin-top: 50px;
+  }
 }
 
 @media screen and (max-width: 360px) {
@@ -526,6 +550,28 @@ font-weight: 700;
     top: 50%;
     left: 5%;
     padding: 0;
+  }
+
+  .introduction {
+    font-size: 80%;
+  }
+
+
+  .challenge-info {
+    margin-top: 70px;
+  }
+
+  .challenge-card {
+    padding: 0;
+ 
+  }
+
+}
+
+@media screen and (max-width: 314px) {
+  .challenge-btns > .btn {
+    padding: 0.2rem;
+    margin-left: 3px;
   }
 
 }
