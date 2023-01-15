@@ -22,7 +22,7 @@ class ChallengeList(ListView):
     """
     model = Challenge
     template_name = 'index.html'
-    queryset = Challenge.objects.all()
+    queryset = Challenge.objects.filter(status="Active")
     ordering = ["-date_created"]
     paginate_by = 6
 
@@ -37,7 +37,7 @@ class ChallengeList(ListView):
 class PastChallengeList(ListView):
     model = Challenge
     template_name = 'past_challenges.html'
-    queryset = Challenge.objects.all()
+    queryset = Challenge.objects.filter(status="Inactive")
     ordering = ["-date_created"]
     paginate_by = 6
 

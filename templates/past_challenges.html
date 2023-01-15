@@ -7,7 +7,7 @@
 <!--Daily Challenges-->
 <div class="container-xl challenge-card">
     {% for challenge in challenge_list %}
-    {% if not challenge.is_active %}
+    {% if not challenge.is_active or challenge.status == 'Inactive' %}
       <div class="card challenge-card">
              
         <div class="challenge-img" style="background-image:url('{{ challenge.featured_image.url }}');">
@@ -17,21 +17,13 @@
 
             <div class="row">
               <div class="col-12">
-                
-
-             
-                {% if today|date:"Y m d" == challenge.date_created|date:"Y m d" %}
-                  <span class="badge rounded-pill"><small>Daily Challenge</small></span>
-                  <span class="badge rounded-pill"><small>NEW! {{ today|date:"j/n" }}</small></span>
-  
-                {% else %}
                   <span class="badge rounded-pill"><small>Daily Challenge</small></span>
                   <span class="badge rounded-pill"><small>OVER!</small></span>
-                {% endif %}
+        
               </div>
               <div class="col">
                 <p class="h4 text-center">{{ challenge.title }}</p>
-                <h3 class="challenge-prompt text-center">{{ challenge.challenge_prompt }}</h3>
+                <h3 class="challenge-prompt text-center">{{ challenge.challenge_prompt }}  {{ challenge.is_active }}</h3>
               </div>
             </div>
             

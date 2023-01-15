@@ -7,6 +7,13 @@
     font-family: "Abel";
     src: url("/static/fonts/Abel-Regular.ttf");
   }
+
+  * {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+  }
   
   body {
     font-family: "Abel";
@@ -146,7 +153,6 @@
   /*INTRO #d6dbdb*/
 
 .introduction {
-  margin-top: 40px;
   background-color: #e6e6e6;
   padding: 20px;
   font-weight: 700;
@@ -473,10 +479,26 @@ font-weight: 700;
 /*FOOTER*/
 
 .footer {
-
   width: 100%;
   flex: 0;
-  background-color: #dadddd;
+  background-color: rgb(26,27,54);
+  color: #dadddd;
+}
+
+.f-info {
+  font-size: 15px;
+}
+
+.insta-link {
+  font-size: 40px;
+}
+
+.insta-link a {
+  color: #dadddd;
+}
+
+.footer-hr {
+  margin: 0.5px;
 }
 
 
@@ -488,4 +510,22 @@ font-weight: 700;
     display: none;
     visibility: hidden;
   }
+  .intro-text {
+    top: 40%
+  }
+  .intro-text h1 {
+    font-size: 120%;
+  }
+  .intro-text h1 a {
+    font-size: 120%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .intro-text {
+    top: 50%;
+    left: 5%;
+    padding: 0;
+  }
+
 }
