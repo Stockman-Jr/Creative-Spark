@@ -60,6 +60,20 @@
 
 
 
+### **Post List Page and Full Post View**
+
+| Element                    | Action  | Expected result                                                                                     | Pass/Fail |
+|----------------------------|---------|-----------------------------------------------------------------------------------------------------|-----------|
+| **Homepage**               | Display | Display challenges with 'Active' status, e.g challenges that are not older then 48 hours            | Pass      |
+| **Past Challenges** page   | Display | Display challenges with 'Inactive' status, e.g challenges that are older then 48 hours              | Pass      |
+| Active Challenge Card      | Display | Display a badge with text "NEW! + todays date" if challenge is posted the same date as current date | Pass      |
+| Active Challenge Card      | Display | Display how much time has passed since challenge was posted                                         | Pass      |
+| Browse Artwork Button Link | Click   | Redirect user to the post list page displaying the user submissions for that challenge              | Pass      |
+| Submit Button Link         | Click   | Redirect user to the post submission form page if user is logged in                                 | Pass      |
+| Submit Button Link         | Click   | Redirect user to Sign In page if user is not logged in                                              | Pass      |
+| Submit Button Link         | Display | Not displaying on 'Inactive' challenges                                                             | Pass      |
+
+
 
 
 ### Bugs

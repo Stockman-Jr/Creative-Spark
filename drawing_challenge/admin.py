@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Challenge, Post, Comment
+from .models import Challenge, Post, Comment, Like
 
 
 @admin.register(Comment)
@@ -11,6 +11,7 @@ class CommentAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     model = Post
     list_display = ('title', 'likes_count', 'challenge', 'approved')
+    readonly_fields = ['author', 'title', 'caption', 'image_post']
     list_filter = [
         ('approved', admin.BooleanFieldListFilter),
     ]
