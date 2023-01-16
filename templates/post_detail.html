@@ -26,6 +26,7 @@
                                 <span>Likes: {{ post.likes.count }} <br> Posted: {{ post.date_posted }}</span>
                             </div>
                             <hr>
+                            {% if user.is_authenticated %}
                             {% if post in faved %}
                                 <div class="action">
                                     <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}" type="button"
@@ -36,6 +37,7 @@
                                     <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}" type="button"
                                         class="btn btn-light"><i class="fa-solid fa-star unfav"></i>Favorite</a>
                                 </div>
+                            {% endif %}
                             {% endif %}
                         </div>
                         <hr>

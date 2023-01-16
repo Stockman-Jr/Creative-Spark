@@ -144,16 +144,8 @@
     margin-top: 15px;
     padding: 5px;
   }
-  
-  
-  .logo {
-    color: #fff;
-    font-size: 40px;
-    color: #e3ed52;
-  }
 
-
-  /*INTRO #d6dbdb*/
+  /*INTRO*/
 
 .introduction {
   background-color: #e6e6e6;
@@ -169,7 +161,7 @@
 
   .lead {
     color: #107a7e;
-font-weight: 600;
+    font-weight: 600;
   }
 
   .past-shortcut {
@@ -407,7 +399,6 @@ color: rgb(13, 91, 94);
 }
 
 /* USER PROFILES */
-/*USER PROFILE*/
 
 .post-gallery {
   max-width: 50%;
@@ -479,6 +470,13 @@ font-weight: 700;
   color: #dadddd;
 }
 
+/*ACCOUNT FORMS*/
+
+.login p, .signup p {
+  color: #107a7e;
+  font-weight: 600;
+}
+
 /*FOOTER*/
 
 .footer {
@@ -513,15 +511,15 @@ font-weight: 700;
     display: none;
     visibility: hidden;
   }
+
   .intro-text {
     top: 40%
   }
+
   .intro-text h1 {
     font-size: 120%;
   }
-  .intro-text h1 a {
-    font-size: 120%;
-  }
+
   .dropdown > .dropdown-toggle {
     color: #fff;
   }
@@ -542,6 +540,21 @@ font-weight: 700;
 
   .challenge-info {
     margin-top: 50px;
+    background-color: rgba(24, 24, 24, 0.3);
+    border-radius: 5px;
+  }
+
+  .challenge-title {
+    display: none;
+    visibility: hidden;
+  }
+
+  .challenge-prompt {
+    font-size: 100%;
+  }
+
+  .badge {
+    margin-top: 5px;
   }
 }
 
@@ -572,6 +585,18 @@ font-weight: 700;
   .challenge-btns > .btn {
     padding: 0.2rem;
     margin-left: 3px;
+  }
+
+}
+
+@media screen and (max-width: 290px) {
+  .challenge-btns > .btn {
+    padding: 0.2rem;
+    margin-left: 3px;
+  }
+
+  .intro-text h1 {
+    font-size: 100%;
   }
 
 }

@@ -9,7 +9,7 @@
     <button value="{{post.pk}}" class="cmt-btn" data-url="{% url 'post_detail' %}" type="submit" class="btn btn-signup btn-lg">Submit</button>
 </form>
 {%else%}
-<p>Sign in to leave a comment</p>
+<p><a class="past-shortcut" href="{% url 'account_signup' %}">Signup</a> or <a class="past-shortcut" href="{% url 'account_login' %}">Login</a> to leave a comment</p>
 {%endif%}
 
 </div>

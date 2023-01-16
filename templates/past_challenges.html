@@ -2,32 +2,28 @@
 
 {% block content %}
 <div class="container-fluid mt-4">
-    <h2 class="text-center">Past Challenges</h2>
+<h2 class="text-center">Past Challenges</h2>
 
-<!--Daily Challenges-->
+<!--Past Challenges-->
 <div class="container-xl challenge-card">
     {% for challenge in challenge_list %}
     {% if not challenge.is_active or challenge.status == 'Inactive' %}
-      <div class="card challenge-card">
-             
+      <div class="card challenge-card">            
         <div class="challenge-img" style="background-image:url('{{ challenge.featured_image.url }}');">
 
-
           <div class="card-body bg-overlay d-flex flex-column">
-
             <div class="row">
-              <div class="col-12">
+              <div class="col-12 stack-sm-col">
                   <span class="badge rounded-pill"><small>Daily Challenge</small></span>
-                  <span class="badge rounded-pill"><small>OVER!</small></span>
-        
+                  <span class="badge rounded-pill"><small>OVER!</small></span>       
               </div>
-              <div class="col">
-                <p class="h4 text-center">{{ challenge.title }}</p>
-                <h3 class="challenge-prompt text-center">{{ challenge.challenge_prompt }}  {{ challenge.is_active }}</h3>
+              <div class="col challenge-info">
+                <p class="h4 text-center challenge-title">{{ challenge.title }}</p>
+                <h3 class="challenge-prompt text-center">{{ challenge.challenge_prompt }}</h3>
               </div>
-            </div>
-            
+            </div>          
           </div>
+
         </div>
 
         <div class="footer-c challenge-btns d-flex justify-content-center">
@@ -37,6 +33,7 @@
       {% endif %}
     {% endfor %}
   </div>
+
   {% if is_paginated %}
   <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">
