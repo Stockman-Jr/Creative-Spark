@@ -2,7 +2,8 @@
 
 {% block content %}
 <div class=" py-5">
-  <div class="container">
+  
+  <div class="container mt-5">
   <!--USER POSTS-->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       {% for post in post_list %}
@@ -12,7 +13,7 @@
         <div class="card shadow-sm">
           <!--MODAL LINK TO POST DETAIL/FULL POST VIEW-->
           <a href="#postDetailModal{{post.pk}}" data-bs-toggle="modal" class="effect">
-            <img src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="">
+            <img src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="Image of user submitted artwork">
             <span><i class="fa-solid fa-magnifying-glass"></i></span>
             <div class="overlay hover-overlay"></div>
           </a>
@@ -23,7 +24,7 @@
             <div class="d-flex align-items-center">
               <div class="card_avatar flex-grow-1">
                 <a href="{{ post.author.profile.get_absolute_url }}">
-                  <img src="{{ request.user.profile.image.url }}" alt=""></a>
+                  <img src="{{ request.user.profile.image.url }}" alt="User profile picture"></a>
                 <span>
                   <strong>
                     <a href="{{ post.author.profile.get_absolute_url }}">{{ post.author }}</a>
@@ -60,6 +61,7 @@
 {% endfor %}
   </div>
 </div>
+</div>
 
 {% block js %}
 <!--AJAX HANDLING OF COMMENTS AND LIKES-->
@@ -83,7 +85,7 @@
     
   
              $('.comment').prepend(
-              `<div id='comment-box'>
+              `<div class='comment-box'>
                 <h5>${response["name"]}:</h5> 
                 <p>${response["content"]}</p>
                 </div>`)

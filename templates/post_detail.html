@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header flex-row d-flex justify-content-between">
                 <div class="card_avatar">
-                    <img src="{{ request.user.profile.image.url }}" alt="">
+                    <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
                     <span>
                         <a href="{{ post.author.profile.get_absolute_url }}">Art by: {{ post.author }}</a>
                     </span>
@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row g-0">
                         <div class="col-lg-6 col-sm-12 user-art">
-                            <img class="img-fluid" src="{{ post.image_post.url }}" alt="">
+                            <img class="img-fluid" src="{{ post.image_post.url }}" alt="Image of user submitted artwork">
                         </div>
                         <div class="col-lg-6 col-sm-12 sidebar">
                             <div class="action mt-3">
@@ -55,8 +55,8 @@
                         <div class="col card mb-4 mt-3 cmt-container ">
                             <div class="card-body comment">
                                 {% for comment in post.comments.all %}
-                                    <div id='comment-box'>
-                                        <h5 class="c-name">{{ comment.name }}:</h6>
+                                    <div class='comment-box'>
+                                        <h5 class="c-name">{{ comment.name }}:</h5>
                                         <p class="c-content">{{ comment.content }}</p>
                                     </div>
                                 {% endfor %}

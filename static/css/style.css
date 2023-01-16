@@ -354,12 +354,12 @@ transition: all .4s linear;
   padding-right: 0;
 }
 
-#comment-box h5 {
+.comment-box h5 {
   margin-left: 3px;
   margin-bottom: 0.2rem;
 }
 
-#comment-box p {
+.comment-box p {
   margin-left: 5px;
   margin-bottom: 0.5rem;
 }
@@ -371,10 +371,6 @@ transition: all .4s linear;
 .comment>div:nth-child(odd){
     background-color: #fff;
     }
-
-/*.modal-open {
-  padding-right: 0px;
-}*/
 
 /*COMMENTS*/
 
@@ -437,7 +433,6 @@ color: rgb(13, 91, 94);
   margin-top: 20px;
 }
 .post-wrapper {
-  /*border: 5px solid rgba(16, 122, 126, 0.8);*/
   border-radius: 5px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;

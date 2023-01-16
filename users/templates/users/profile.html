@@ -4,10 +4,10 @@
 <!-- PROFILE NAV -->
 <div class="d-flex flex-row flex-shrink-0 p-3 text-white user-nav">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <span class="fs-4 card-avatar align-middle">
-            {% if p_user.profile.image %}
-                <img src="{{ p_user.profile.image.url }}" alt="" srcset="">
-            {% endif %}
+        <span class="fs-4 card-avatar">
+     
+                <img src="{{ p_user.profile.image.url }}" alt="User profile picture" >
+   
             {{ p_user.username }}'s Profile
         </span>
     </a>
@@ -50,7 +50,7 @@
     <div class="post-gallery">
         {% for post in user_posts %}
         <div class="post-wrapper mb-3 text-center">
-            <img class="img-fluid" src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="">
+            <img class="img-fluid" src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="Image of user submitted artwork">
             <div class="card-footer post-info">
                 <div class="info-text">
                     <p><strong>Challenge:</strong> {{ post.challenge.challenge_prompt }}</p>
@@ -103,8 +103,8 @@
                             <div class="col card mb-4 mt-3 cmt-container ">
                                 <div class="card-body comment">
                                     {% for comment in post.comments.all %}
-                                        <div id='comment-box'>
-                                            <h5 class="c-name">{{ comment.name }}:</h6>
+                                        <div class='comment-box'>
+                                            <h5 class="c-name">{{ comment.name }}:</h5>
                                             <p class="c-content">{{ comment.content }}</p>
                                         </div>
                                     {% endfor %}
