@@ -136,10 +136,16 @@ For some of the User Stories an acceptance criteria was also added using the: **
   * Registered members will have access to their own profile page, well as    
    other users profile pages.
   * The logged in users personal profile page is accessible in the user menu in the top right corner, and links to other users profile pages are provided throughout the application. 
-  For example when looking at your or others facourite posts, browsing posts and viewing full posts.
+  For example when looking at your or others favourite posts, browsing posts and viewing full posts.
   * All profile pages includes a simple navigation with links to two galleries, a gallery displaying the users uploaded posts and one to show the users favourited posts.
+  ![Profile Nav](assets/images/user-profile-nav.png)
+  ![Profile Post](assets/images/user-profile-posts.png)
   * The logged in users personal profile page will include two interactable icon links, 
   a trashcan which allows the user to delete their posts and an edit icon which allows the user to update their post.
+  * Clicking the delete button will open a modal where the user can confirm to delete the post
+  ![Delete Post](assets/images/delete-post.png)
+  * Comments belonging to an individual post can be viewed in a modal by clicking the "View Comments" button.
+  ![Comments Modal](assets/images/profile-view-comments.png)
   * The purpose of profile pages are to allow easy access to the users uploaded content to view, edit and delete
 ---
 ### Future Features
