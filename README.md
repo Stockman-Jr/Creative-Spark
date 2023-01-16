@@ -36,22 +36,26 @@ Join the community and get tons of inspiration by participating in our drawing c
   * Easily navigate around the application to view most content.
   * Click the 'Signup' navigation link to register and become a member.
   * View all challenges as well as posts submitted to each challenge.
+  * View full posts.
+  * View comments.
 
 
 ### As an authenticated user, I can:
-  * Submit art to participate in challenges
-  * View full posts
-  * View and comment on posts
-  * Like and unlike posts
-  * Add posts to favourites
-  * View other users profile pages
-  * Utilise my profile page to view and delete my uploaded content as well as my favourite posts
+  * Perform all tasks mentioned above.
+  * Submit art to participate in challenges.
+  * Leave comments on posts.
+  * Like and unlike posts.
+  * Add posts to favourites.
+  * View other users profile pages.
+  * Utilise my profile page to view my uploaded posts and my favourited posts.
+  * Utilise my profile page update the title and caption of posts I uploaded.
+  * Utilise my profile page to delete posts I uploaded.
 
 
 ### As a site admin, I can:
-  * Perform all tasks mentioned above
-  * Approve user posts
-  * Delete comments, posts and challenges
+  * Perform all tasks mentioned above.
+  * Approve user posts.
+  * Delete comments, posts and challenges.
 
 
 - - -

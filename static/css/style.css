@@ -322,13 +322,16 @@ transition: all .4s linear;
 }
 
 /*MODAL*/
+.modal-body {
+  overflow: auto;
+}
 
 .modal-header .btn-close {
   margin: 0;
 }
 
 .sidebar {
-  background-color: #dadddd;
+  background-color: #f0f7ea;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -343,6 +346,35 @@ transition: all .4s linear;
 .col-md-9.user-art {
   padding-right: 0;
 }
+
+.cmt-container {
+  overflow-y: scroll;
+  max-height: 140px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#comment-box h5 {
+  margin-left: 3px;
+  margin-bottom: 0.2rem;
+}
+
+#comment-box p {
+  margin-left: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.comment>div:nth-child(even){
+  background-color: #f0f7ea;
+  }
+
+.comment>div:nth-child(odd){
+    background-color: #fff;
+    }
+
+/*.modal-open {
+  padding-right: 0px;
+}*/
 
 /*COMMENTS*/
 

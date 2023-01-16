@@ -1,13 +1,13 @@
     <!--MODAL-->
 <div class="modal fade" id="postDetailModal{{post.pk}}" tabindex="-1" role="dialog" aria-labelledby="popupLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+    <div class="modal-dialog modal-lg mt-0">
         <div class="modal-content">
             <div class="modal-header flex-row d-flex justify-content-between">
                 <div class="card_avatar">
                     <img src="{{ request.user.profile.image.url }}" alt="">
                     <span>
-                        <a href="#">Art by: {{ post.author }}</a>
+                        <a href="{{ post.author.profile.get_absolute_url }}">Art by: {{ post.author }}</a>
                     </span>
                 </div>
                 <h5 class="modal-title text-center">{{ post.title }}</h5>
@@ -52,11 +52,11 @@
                 <div class="container">
                     <div class="row">
                         <h6 class="text-center">Comments:</h6>
-                        <div class="col card mb-4  mt-3 ">
+                        <div class="col card mb-4 mt-3 cmt-container ">
                             <div class="card-body comment">
                                 {% for comment in post.comments.all %}
                                     <div id='comment-box'>
-                                        <h6 class="c-name">{{ comment.name }}:</h6>
+                                        <h5 class="c-name">{{ comment.name }}:</h6>
                                         <p class="c-content">{{ comment.content }}</p>
                                     </div>
                                 {% endfor %}

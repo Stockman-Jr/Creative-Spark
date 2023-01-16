@@ -190,6 +190,7 @@ def add_favourite(request, pk):
 
     if profile.favourite.filter(id=pk).exists():
         profile.favourite.remove(post)
+        messages.add_message(request, messages.INFO, 'Removed from favourites.')
     else:
         profile.favourite.add(post)
         messages.add_message(request, messages.SUCCESS, 'Added to favourites!')
