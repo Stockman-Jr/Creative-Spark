@@ -502,6 +502,10 @@ font-weight: 700;
   color: #dadddd;
 }
 
+.post-update {
+  width: 70%;
+}
+
 /*ACCOUNT FORMS*/
 
 .login p, .signup p {
@@ -588,6 +592,10 @@ font-weight: 700;
   .badge {
     margin-top: 5px;
   }
+}
+
+.sidebar {
+  font-size: 13px;
 }
 
 @media screen and (max-width: 360px) {

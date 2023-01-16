@@ -126,6 +126,7 @@ For some of the User Stories an acceptance criteria was also added using the: **
 
 ### Future Features
   * If provided more time, I would have wanted to create a "Winners" page, which would feature the most liked posts from every drawing challenge that's ended.
+  * Give users the ability to update their profile, for example changing their profile picture and adding a bio.
 
 
 

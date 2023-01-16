@@ -20,15 +20,15 @@
                             <img class="img-fluid" src="{{ post.image_post.url }}" alt="">
                         </div>
                         <div class="col-lg-6 col-sm-12 sidebar">
-                            <div class="action">
-                                <span>{{ post.challenge.challenge_prompt }}</span>
+                            <div class="action mt-3">
+                                <span><strong>{{ post.challenge.challenge_prompt }}</strong></span>
                                 <hr>
                                 <span>Likes: {{ post.likes.count }} <br> Posted: {{ post.date_posted }}</span>
                             </div>
                             <hr>
                             {% if user.is_authenticated %}
                             {% if post in faved %}
-                                <div class="action">
+                                <div class="action mb-2">
                                     <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}" type="button"
                                         class="btn btn-light"><i class="fa-solid fa-star fav"></i> Favorited</a>
                                 </div>
