@@ -55,8 +55,42 @@
                         <p>Challenge: {{ post.challenge.challenge_prompt }}</p>
                         <span>Likes: {{ post.likes.count }}</span>
                     </div>
+                    <div class="view-comments">
+                        <a class="btn post-btn mb-2 mt-1" href="#viewComments{{ post.pk }}" data-bs-toggle="modal">View comments</a>
+                    </div>
+                </div>
+
+
+                <!--VIEW COMMENTS MODAL-->
+        <div class="modal fade" id="viewComments{{ post.pk }}" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content mx-3">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="staticBackdropLabel">Comments</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col card mb-4 mt-3 cmt-container ">
+                                    <div class="card-body comment">
+                                        {% for comment in post.comments.all %}
+                                        <div id='comment-box'>
+                                            <h5 class="c-name">{{ comment.name }}:</h6>
+                                                <p class="c-content">{{ comment.content }}</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+        
+    </div>
         {% endfor %}
     </div>
 </div>

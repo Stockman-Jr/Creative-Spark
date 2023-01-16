@@ -2,15 +2,14 @@
 {% load static %}
 {% block content %}
 {% load crispy_forms_tags %}
-<div class='row justify-content-center' >
 
+<div class='row justify-content-center' >
+    <h4 class="mt-5 text-center"> Update Post </h4>
     <form method="POST" class="post-update">
         {% csrf_token %}
         {{ form|crispy}}
         <button class="btn btn-md post-btn" type="submit">Update post</button>
     </form>
 </div>
-
-
 
 {%endblock%}
