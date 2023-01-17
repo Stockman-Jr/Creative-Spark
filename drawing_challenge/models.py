@@ -29,7 +29,7 @@ class Challenge(models.Model):
     def is_active(self):
         if (self.date_created.date() + timedelta(days=2)) > date.today():
             return self.status == 'Active'
-        else:
+        elif (self.date_created.date() + timedelta(days=2)) < date.today():
             return self.status == 'Inactive'
 
     def get_absolute_url(self):

@@ -32,3 +32,5 @@ class TestPostForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('challenge', form.errors.keys())
         self.assertEqual(form.errors['challenge'][0], 'This field is required.')
+
+ 

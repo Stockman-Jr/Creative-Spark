@@ -78,7 +78,7 @@ For some of the User Stories an acceptance criteria was also added using the: **
  * White is the most apparent colour used through out the site, and some light grey shades have also been used.
    I didn't want to create too much distractions since the uploaded art is supposed to be the hero of the site, I wanted make sure they would stand out to be the main focus for the users.
 
-  ![Header Image](assets/images/header-colours.png)
+   ![Header Image](assets/images/header-colours.png)
  * I've used a subtle amount accent colours throughout the site based on the colours in the header image: some greens, yellows and dark purple. 
 
 ### Typography
@@ -103,6 +103,7 @@ For some of the User Stories an acceptance criteria was also added using the: **
 
 #### Landing Page
 ![Header](assets/images/header-nav.png)
+
   * The landing page features the header with navigation links, text with introduction to the website and a list of active challenges the users can participate in.
 
 
@@ -110,15 +111,15 @@ For some of the User Stories an acceptance criteria was also added using the: **
   * The navigation is simple but also provides the user with many options to navigate the page, and is passed down to all pages of the application through base.html.
   * For an unauthenticated user the navigation is in the header, featuring "Home", "Browse Art" with a dropdown link to inactive challenges, "Sign Up" and "Sign in".
 
-  ![Unauth Navigation](assets/images/unauth-nav.png)
+    ![Unauth Navigation](assets/images/unauth-nav.png)
 
   *  For an authenticated user, the same navigation menu is available except 
     "Sign out" is available instead of "Sign Up/Sign In".
     This navigation is also responsive as it collapses on small screens.
 
-  ![Auth Nav](assets/images/authenticated-nav.png)
+     ![Auth Nav](assets/images/authenticated-nav.png)
 
-  ![Mobile Nav](assets/images/mobile-nav.png)
+     ![Mobile Nav](assets/images/mobile-nav.png)
 
   * Authenticated users will also have a user navigation available to them on all pages, displaying their profile picture with a dropdown menu in the right corner of the page.
     This user menu includes "Your Posts" and "Favourites", which navigates the user to their profile page.
@@ -146,11 +147,13 @@ For some of the User Stories an acceptance criteria was also added using the: **
   * Provided that the user is authenticated, they can interact with the like button to like or unlike a post and view the creator of the post's profile page by clicking on the avatar/username.
   ![Post Cards](assets/images/post-list-cards.png)
   * Hovering over the post's image will display a magnifying glass, and allows the user to view the full post by clicking on it.
-  ![Image Hover](assets/images/card-img-hover.png)
+
+    ![Image Hover](assets/images/card-img-hover.png)
   ---
 
 #### **Full post view**
-![Post Detail Modal](assets/images/post-detail-modal.png)
+  ![Post Detail Modal](assets/images/post-detail-modal.png)
+
   * The full view of the post is displayed in a bootstrap modal, and features a larger preview of the artwork, more information, a favourite button and a comment section.
   * Provided that the user is authenticated, they can add a post to favourites by clicking on the favourite button. The user can also add comments.
   * Comments will be displayed directly upon submit without page refresh.
