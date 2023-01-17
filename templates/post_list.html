@@ -82,8 +82,7 @@
          success: function (response) {
              console.log('SUCCESS')
              $(".comment_form").trigger('reset');
-    
-  
+     
              $('.comment').prepend(
               `<div class='comment-box'>
                 <h5>${response["name"]}:</h5> 

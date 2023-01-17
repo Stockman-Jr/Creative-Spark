@@ -12,7 +12,7 @@ from django.core.files.base import ContentFile
 
 def get_temp_image():
     image_file = io.BytesIO()
-    image = Image.new('RGB', size=(50,50), color=(255,0,0))
+    image = Image.new('RGB', size=(50, 50), color=(255, 0, 0))
     image.save(image_file, 'png')
     image_file.seek(0)
     test_image = ContentFile(image_file.read(), 'test.png')

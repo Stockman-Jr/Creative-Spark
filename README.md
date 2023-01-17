@@ -13,6 +13,9 @@ Join the community and get tons of inspiration by participating in our drawing c
 * [User Stories](#user-stories)
 * [Agile Methodology](#agile-methodology)
 * [Design](#design)
+  * [Colour Scheme](#colour-scheme)
+  * [Typography](#typography)
+  * [Imagery](#imagery)
 * [Features](#features)
     * [Existing Features](#existing-features)
     * [Future Features](#future-features)
@@ -70,6 +73,28 @@ For some of the User Stories an acceptance criteria was also added using the: **
 ---
 
 # Design
+
+### Colour scheme
+ * White is the most apparent colour used through out the site, and some light grey shades have also been used.
+   I didn't want to create too much distractions since the uploaded art is supposed to be the hero of the site, I wanted make sure they would stand out to be the main focus for the users.
+
+  ![Header Image](assets/images/header-colours.png)
+ * I've used a subtle amount accent colours throughout the site based on the colours in the header image: some greens, yellows and dark purple. 
+
+### Typography
+  * I downloaded and used a special font called Shine for the site name in the header, as I wanted it to pop.
+    Link to the font will be provided in the credits section.
+  * Throughout the rest of the site I've used the Abel font, downloaded from Google fonts.
+    I chose this because it's clean, eyecatching and easy to read. 
+
+### Imagery
+  * The header image was sourced from a free stock photo platforms, as well as the featured images used for testing in the challenge cards.
+
+  * The main purpose of this site is for users to upload their own art, so the art displayed on the site now are only meant for testing purposes, they are not created or owned by me.
+  The images used in posts for the purpose of testing and showcasing the site are all found on pinterest and created by talented artist. A link will be provided to a pinterest board in the credits section, containing all these images used. 
+
+### Responsive Design
+ * The responsiveness of the site was achieved through the use of bootstrap and media queries.
 
 ---
 # Features
@@ -150,7 +175,8 @@ For some of the User Stories an acceptance criteria was also added using the: **
 ---
 ### Future Features
   * If provided more time, I would have wanted to create a "Winners" page, which would feature the most liked posts from every drawing challenge that's ended.
-  * Give users the ability to update their profile, for example changing their profile picture and adding a bio.
+  * Give users options to personalize their profile page, for example changing their profile picture and adding a bio.
+  * More account configuration and authentication features.
 
 
 
@@ -180,7 +206,8 @@ Testing documentation can be found [here](https://github.com/Stockman-Jr/Creativ
   * [GitHub](https://github.com/) - To save and store files for the website.
   * Git - For version control.
   * [Fontawesome](https://fontawesome.com/) - For adding icons.
-  * [Google Fonts](https://fonts.google.com/)
+  * [Google Fonts](https://fonts.google.com/specimen/Abel?query=abel) - Main font used
+  * [Fontspace](https://www.fontspace.com) - Font used for the header
   * [Heroku](https://www.heroku.com/) - For deploying the project
   * [Am I Responsive?](https://ui.dev/amiresponsive) - To display website on different devices.
   * [ElephantSQL]() - Was used as the database for this project
@@ -196,5 +223,15 @@ Testing documentation can be found [here](https://github.com/Stockman-Jr/Creativ
 
 ## Credits
 
+### Media/Design
+  * [Fontspace](https://www.fontspace.com/shine-font-f65872) - Shine font used for the header
+  * [Pinterest Board]()
+  * [ShapeDivider](https://www.shapedivider.app/) - Used to create the svg shape in the header
+
 ### Code
-  * [Stackoverflow](https://stackoverflow.com/)
+  * [Stackoverflow](https://stackoverflow.com/) - Stackoverflow has been a huge source of learning and finding solutions throughout this project. As I've probably browsed through a million threads, I haven't been able to keep track of them all. 
+  But I know some of the threads I found was a huge help for the comment functionality, implementing Ajax and setting up urls.
+  * [Favourites](https://github.com/veryacademy/YT-Django-Simple-Blog-App-Part10-User-Favourties-Save) - Found through a tutorial on youtube and was referenced for adding favourites.
+  * [Github Project](https://github.com/shubham1710/ByteWalk) - This github project was found in this [tutorial](https://towardsdatascience.com/build-a-social-media-website-with-django-feed-app-backend-part-4-d82facfa7b3) article for creating a social media website, and has been used as a reference for some of the code in the project. For example the like functionality and user profiles set up.
+  * [CodePen](https://codepen.io/mhhasan320/pen/BwqvLL) - Used as a reference for creating the hover effect on posts.
+  * [CodePen](https://codepen.io/emilandersson/pen/rWwvwq) - Used as a reference for the like button animation

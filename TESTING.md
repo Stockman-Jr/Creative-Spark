@@ -102,10 +102,11 @@
 #### 
   * **Fix** - 
 
-#### 
-  * **Expected** - 
-  * **Testing** - 
-  * **Fix** - 
+#### Like Count Not Updating
+  * **Expected** - For like count to update without page refresh
+  * **Testing** - Googled and checked stackoverflow for different solutions and tested them out as I am inexperienced working with Ajax.
+   * **Result** - None of the solutions I tried gave me the result I wanted, but by experimenting with different code snippets I eventually came up with something that worked.
+  * **Fix** - I ended up
 
 #### 
   * **Expected** -
