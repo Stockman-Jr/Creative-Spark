@@ -48,7 +48,7 @@
     <div class="post-gallery">
         {% for post in faves %}
             <div class="post-wrapper mb-3 text-center">
-                <img class="img-fluid artwork" src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="Image of user submitted artwork">
+                <img class="img-fluid artwork" src="{{ post.image_post.url }}" alt="Image of user submitted artwork">
                 <div class="card-footer post-info">
                     <div class="info-text">
                         <p>Created by: {{ post.author }}</p>
@@ -62,12 +62,12 @@
 
 
                 <!--VIEW COMMENTS MODAL-->
-        <div class="modal fade" id="viewComments{{ post.pk }}" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="viewComments{{ post.pk }}" tabindex="-1" role="dialog" aria-label="popupLabel"
+                aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content mx-3">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="staticBackdropLabel">Comments</h3>
+                        <h3 class="modal-title">Comments</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

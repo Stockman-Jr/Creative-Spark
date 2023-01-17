@@ -12,8 +12,12 @@
 ### **Validator Testing**
 
   * **HTML**
+[W3C HTML Validator](https://jigsaw.w3.org/css-validator/validator) was used to validate the html written for the project.
 
+
+![HTML Validation](assets/images/html-validation.png)
   * **CSS**
+  [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator) was used to validate CSS written for this project, no issues were found.
 
   ![CSS Validation](assets/images/css-validation.png)
 
@@ -22,6 +26,12 @@
   * **Lighthouse**
 
 ### **Automated Testing**
+Some automated unit testing was written for this project. Due to inexperience of writing automated tests it was taking up too much of the little time I had left before deadline. I still felt like it was necessary to write tests and learn as much as I could since I'm sure unit testing will be more important for future projects. I've been as thorough as I can with the manual testing to try and compensate for the gaps in the automated testing.
+
+![Coverage Report](assets/images/coverage-report.png)
+
+* Coverage is at 83%. This will definitely be improved for the next project!
+
 
 
 ### **Manual Testing**
@@ -51,8 +61,8 @@
 
 | Element                    | Action  | Expected result                                                                                     | Pass/Fail |
 | -------------------------- | ------- | --------------------------------------------------------------------------------------------------- | --------- |
-| **Homepage**               | Display | Display challenges with 'Active' status, e.g challenges that are not older then 48 hours            | Pass      |
-| **Past Challenges** page   | Display | Display challenges with 'Inactive' status, e.g challenges that are older then 48 hours              | Pass      |
+| **Homepage**               | Display | Display challenges with 'Active' status, e.g challenges that are not older than 48 hours            | Pass      |
+| **Past Challenges** page   | Display | Display challenges with 'Inactive' status, e.g challenges that are older than 48 hours              | Pass      |
 | Active Challenge Card      | Display | Display a badge with text "NEW! + todays date" if challenge is posted the same date as current date | Pass      |
 | Active Challenge Card      | Display | Display how much time has passed since challenge was posted                                         | Pass      |
 | Browse Artwork Button Link | Click   | Redirect user to the post list page displaying the user submissions for that challenge              | Pass      |
@@ -67,7 +77,7 @@
 | Element                      | Action  | Expected result                                                                                                 | Pass/Fail |
 |------------------------------|---------|-----------------------------------------------------------------------------------------------------------------|-----------|
 | **Post List** page           | Display | Displays correct posts uploaded in the challenge that was clicked                                               | Pass      |
-| **Post Cards**               | Display | Displays correctly the owner of the post's username, artwork, title and like button with like counts            | Pass      |
+| **Post Cards**               | Display | Displays correctly the owner of the posts username, artwork, title and like button with like counts            | Pass      |
 | Post Card Image              | Hover   | Overlay effect with a magnifying glass                                                                          | Pass      |
 | Post Card Profile Link       | Click   | Redirects to that users profile page if user is logged in                                                       | Pass      |
 | Post Card Profile Link       | Click   | Redirects user to signup page if user is not logged in                                                          | Pass      |
@@ -87,7 +97,7 @@
 
 | Element                      | Action        | Expected result                                                                                     | Pass/Fail |
 |------------------------------|---------------|-----------------------------------------------------------------------------------------------------|-----------|
-| **User Profiles**            | Display       | Will display user's uploaded posts in post gallery, and user's favourites in favourite gallery      | Pass      |
+| **User Profiles**            | Display       | Will display user's uploaded posts in post gallery, and users favourites in favourite gallery      | Pass      |
 | My profile page              | Display       | Acts as a personal profile and can only be accessed via the drop down user menu                     | Pass      |
 | Delete/Edit Post Icon Button | Display       | Is only available on 'My Profile' page, posts can only be updated/deleted by the owner of the posts | Pass      |
 | Delete Icon Button           | Click         | Opens up a modal to confirm deletion of the post                                                    | Pass      |
@@ -106,7 +116,7 @@
   * **Expected** - For like count to update without page refresh
   * **Testing** - Googled and checked stackoverflow for different solutions and tested them out as I am inexperienced working with Ajax.
    * **Result** - None of the solutions I tried gave me the result I wanted, but by experimenting with different code snippets I eventually came up with something that worked.
-  * **Fix** - I ended up
+  * **Fix** - I ended up creating a count varible of the span element containing the post like count, adding +1 if liked was true and -1 if liked was false, then updating the text value of the span with that. It works, but there is probably a better solution to this as it's a bit flawed.
 
 #### 
   * **Expected** -
@@ -116,6 +126,6 @@
 
 
 ### Unsolved bugs
-No known unsolved bugs.
+ * As mentioned, the like count not updating fix was flawed, because if you were to spam the like button quickly, the counter does not keep up. But refreshing the page displays everything correctly.
  
 ---

@@ -50,17 +50,19 @@
     <div class="post-gallery">
         {% for post in user_posts %}
         <div class="post-wrapper mb-3 text-center">
-            <img class="img-fluid" src="{{ post.image_post.url }}" class="card-img-top post-detail" alt="Image of user submitted artwork">
+            <img class="img-fluid" src="{{ post.image_post.url }}" alt="Image of user submitted artwork">
             <div class="card-footer post-info">
                 <div class="info-text">
-                    <p><strong>Challenge:</strong> {{ post.challenge.challenge_prompt }}</p>
-                    <p><strong>Likes:</strong> {{ post.likes.count }}</p>
-                </div>
-                <div class="delete-post">
+                    <small><strong>Title:</strong> {{ post.title }} <br></small>
+                    <small><strong>Caption:</strong> {{ post.caption }}<br></small>
+                    <small><strong>Challenge:</strong> {{ post.challenge.challenge_prompt }}</small>
+                </div>          
+                <div>
                     {% if user.is_authenticated and post.author == request.user%}
-                    <a href="#deletePost{{ post.pk }}" data-bs-toggle="modal"><i class="fa-solid fa-trash-can"></i></a>
-                    <a href="{% url 'update_post' post.pk %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="delete-edit-post" href="#deletePost{{ post.pk }}" data-bs-toggle="modal"><i class="fa-solid fa-trash-can"></i></a>
+                    <a class="delete-edit-post" href="{% url 'update_post' post.pk %}"><i class="fa-solid fa-pen-to-square"></i></a>
                     {%endif%}
+                    <small><strong><i class="fas fa-heart liked"></i></strong> {{ post.likes.count }}</small>     
                 </div>
                 <div class="view-comments">
                     <a class="btn post-btn mb-2 mt-1" href="#viewComments{{ post.pk }}" data-bs-toggle="modal">View comments</a>
@@ -68,12 +70,12 @@
             </div>
         </div>
         <!--DELETE POST MODAL-->
-        <div class="modal fade" id="deletePost{{ post.pk }}" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="deletePost{{ post.pk }}" tabindex="-1" role="dialog" aria-label="popupLabel"
+        aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content mx-3">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="staticBackdropLabel">Are you sure?</h3>
+                        <h3 class="modal-title">Are you sure?</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -89,12 +91,12 @@
         </div>
 
 <!--VIEW COMMENTS MODAL-->
-        <div class="modal fade" id="viewComments{{ post.pk }}" data-bs-backdrop="static" data-bs-keyboard="false"
-        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="viewComments{{ post.pk }}" tabindex="-1" role="dialog" aria-label="popupLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content mx-3">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="staticBackdropLabel">Comments</h3>
+                    <h3 class="modal-title">Comments</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

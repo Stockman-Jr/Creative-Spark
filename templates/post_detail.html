@@ -1,5 +1,5 @@
     <!--MODAL-->
-<div class="modal fade" id="postDetailModal{{post.pk}}" tabindex="-1" role="dialog" aria-labelledby="popupLabel"
+<div class="modal fade" id="postDetailModal{{post.pk}}" tabindex="-1" role="dialog" aria-label="popupLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg mt-0">
         <div class="modal-content">
@@ -29,12 +29,14 @@
                             {% if user.is_authenticated %}
                             {% if post in faved %}
                                 <div class="action mb-2">
-                                    <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}" type="button"
-                                        class="btn btn-light"><i class="fa-solid fa-star fav"></i> Favorited</a>
+                            
+                                    <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}"
+                                    class="btn btn-light" ><i class="fa-solid fa-star fav"></i> Favorited</a>
+                            
                                 </div>
                             {% else %}
                                 <div class="action">
-                                    <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}" type="button"
+                                    <a href="{% url 'add_favourite' post.pk %}" id="favBtn{{ post.id }}"
                                         class="btn btn-light"><i class="fa-solid fa-star unfav"></i>Favorite</a>
                                 </div>
                             {% endif %}
@@ -47,7 +49,7 @@
             </div>
 
 
-            <div id="form-modal-footer" class="modal-footer">
+            <div class="modal-footer">
                 <!--COMMENTS-->
                 <div class="container">
                     <div class="row">

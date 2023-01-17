@@ -463,14 +463,14 @@ color: #023638;
 font-weight: 700;
 }
 
-.delete-post i {
+.delete-edit-post i {
   color: #023638;
   margin-bottom: 10px;
   text-align: right;
   font-size: 18px;
 }
 
-.delete-post i:hover {
+.delete-edit-post i:hover {
   color: #07a07f;
 }
 

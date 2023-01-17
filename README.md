@@ -1,9 +1,9 @@
 # CreativeSpark
 
-CreativeSpark is a website created for artist's of all skill levels, where daily drawing challenges will be provided for the community to participate in!
-As most artists know, the more you draw the better you'll get, and purpose of this website is to provide artists with inspiration, since there are times you will run empty. 
+CreativeSpark is a website created for artists of all skill levels, where daily drawing challenges will be provided for the community to participate in!
+As most artists know, the more you draw the better you'll get, and the purpose of this website is to provide artists with inspiration, since there are times when you will run empty. 
 A fun way to get ideas and improve your drawing skills!
-Join the community and get tons of inspiration by participating in our drawing challenges and browsing amazing art submitted by your fellow artists! 
+Join the community and get tons of inspiration by participating in our drawing challenges, and browse amazing art submitted by your fellow artists! 
 
 
 - - - 
@@ -51,8 +51,8 @@ Join the community and get tons of inspiration by participating in our drawing c
   * Add posts to favourites.
   * View other users profile pages.
   * Utilise my profile page to view my uploaded posts and my favourited posts.
-  * Utilise my profile page update the title and caption of posts I uploaded.
-  * Utilise my profile page to delete posts I uploaded.
+  * Utilise my profile page update the title and caption of posts I've uploaded.
+  * Utilise my profile page to delete posts I've uploaded.
 
 
 ### As a site admin, I can:
@@ -75,11 +75,12 @@ For some of the User Stories an acceptance criteria was also added using the: **
 # Design
 
 ### Colour scheme
- * White is the most apparent colour used through out the site, and some light grey shades have also been used.
-   I didn't want to create too much distractions since the uploaded art is supposed to be the hero of the site, I wanted make sure they would stand out to be the main focus for the users.
+ * White is the most apparent colour used throughout the site, and some light grey shades have also been used.
+   I didn't want too many distractions since the uploaded art is supposed to be the hero of the site.
+   I wanted make sure they would stand out and be the main focus for the users.
 
    ![Header Image](assets/images/header-colours.png)
- * I've used a subtle amount accent colours throughout the site based on the colours in the header image: some greens, yellows and dark purple. 
+ * I've used a subtle amount of accent colours throughout the site based on the colours in the header image. Some greens, yellows and dark purple. 
 
 ### Typography
   * I downloaded and used a special font called Shine for the site name in the header, as I wanted it to pop.
@@ -91,7 +92,7 @@ For some of the User Stories an acceptance criteria was also added using the: **
   * The header image was sourced from a free stock photo platforms, as well as the featured images used for testing in the challenge cards.
 
   * The main purpose of this site is for users to upload their own art, so the art displayed on the site now are only meant for testing purposes, they are not created or owned by me.
-  The images used in posts for the purpose of testing and showcasing the site are all found on pinterest and created by talented artist. A link will be provided to a pinterest board in the credits section, containing all these images used. 
+  The images used in posts for the purpose of testing and showcasing the site are all found on pinterest and created by talented artists. A link will be provided to a pinterest board in the credits section, containing all the images used. 
 
 ### Responsive Design
  * The responsiveness of the site was achieved through the use of bootstrap and media queries.
@@ -104,7 +105,7 @@ For some of the User Stories an acceptance criteria was also added using the: **
 #### Landing Page
 ![Header](assets/images/header-nav.png)
 
-  * The landing page features the header with navigation links, text with introduction to the website and a list of active challenges the users can participate in.
+  * The landing page features the header with navigation links, text with an introduction to the website and a list of active challenges the users can participate in.
 
 
 #### Navigation
@@ -121,7 +122,7 @@ For some of the User Stories an acceptance criteria was also added using the: **
 
      ![Mobile Nav](assets/images/mobile-nav.png)
 
-  * Authenticated users will also have a user navigation available to them on all pages, displaying their profile picture with a dropdown menu in the right corner of the page.
+  * Authenticated users will also have user navigation available to them on all pages, displaying their profile picture with a dropdown menu in the right corner of the page.
     This user menu includes "Your Posts" and "Favourites", which navigates the user to their profile page.
 
     ![User Menu](assets/images/user-profile-menu.png)
@@ -132,9 +133,9 @@ For some of the User Stories an acceptance criteria was also added using the: **
   * Challenges are displayed in bootstrap cards with a featured image, the drawing prompt and one or two button links.
   The cards provides the user with simple but clear information about the drawing challenge.
   * All challenges are open for submissions for 48 hours from the moment they are posted. The active challenges are displayed in the "Home" page, and the inactive challenges are displayed in the "Past Challenges" page.
-  * An active challenge will display a badge with the text display with "New" and todays date if the challenge was posted the same day as the current date.
+  * An active challenge will display a badge with the text "New" and todays date if the challenge was posted the same day as the current date.
   Since challenges are time constrained, info about how much time has passed since it was posted will also be provided for the user.
-  The button link "Browse Art" will direct the user to a page showing all the posts uploaded in that particular challenge, and the link with "Submit" will direct to user to the post submission form.
+  The button link "Browse Art" will direct the user to a page showing all the posts uploaded in that particular challenge, and the link with "Submit" will direct the user to the post submission form.
   ![Active Challenge](assets/images/challenge-card.png)
   * Inactive challenges are available for users to browse in the "Past Challenges" page with similar but less information.
   The submit button will not be available as users cannot participate in inactive challenges.
@@ -156,28 +157,28 @@ For some of the User Stories an acceptance criteria was also added using the: **
 
   * The full view of the post is displayed in a bootstrap modal, and features a larger preview of the artwork, more information, a favourite button and a comment section.
   * Provided that the user is authenticated, they can add a post to favourites by clicking on the favourite button. The user can also add comments.
-  * Comments will be displayed directly upon submit without page refresh.
-  * If user is not authenticated, they can view comments for that posts but the comment form is replaced with text including links to sign in page and sign up page.
+  * Comments will be displayed directly upon submission without page refresh.
+  * If the user is not authenticated, they can view comments for that posts but the comment form is replaced with text including links to sign in page and sign up page.
   ![Unauth Modal](assets/images/unauth-modal.png)
 ---
 #### User Profiles
-  * Registered members will have access to their own profile page, well as    
+  * Registered members will have access to their own profile page, as well as
    other users profile pages.
   * The logged in users personal profile page is accessible in the user menu in the top right corner, and links to other users profile pages are provided throughout the application. 
-  For example when looking at your or others favourite posts, browsing posts and viewing full posts.
-  * All profile pages includes a simple navigation with links to two galleries, a gallery displaying the users uploaded posts and one to show the users favourited posts.
+  For example when looking at your own or others favourite posts, browsing posts and viewing full posts.
+  * All profile pages includes a simple navigation with links to two galleries: a gallery displaying the users uploaded posts and one to show the users favourited posts.
   ![Profile Nav](assets/images/user-profile-nav.png)
   ![Profile Post](assets/images/user-profile-posts.png)
-  * The logged in users personal profile page will include two interactable icon links, 
-  a trashcan which allows the user to delete their posts and an edit icon which allows the user to update their post.
+  * The logged in users personal profile page will include two interactable icon links: 
+  a trashcan which allows the user to delete their posts, and an edit icon which allows the user to update their post.
   * Clicking the delete button will open a modal where the user can confirm to delete the post
   ![Delete Post](assets/images/delete-post.png)
   * Comments belonging to an individual post can be viewed in a modal by clicking the "View Comments" button.
   ![Comments Modal](assets/images/profile-view-comments.png)
-  * The purpose of profile pages are to allow easy access to the users uploaded content to view, edit and delete
----
+  * The purpose of profile pages are to allow easy access to the users own uploaded content to view, edit or delete
+
 ### Future Features
-  * If provided more time, I would have wanted to create a "Winners" page, which would feature the most liked posts from every drawing challenge that's ended.
+  * If provided more time, I would have wanted to create a "Winners" page, which would feature the most liked posts from every drawing challenge that has ended.
   * Give users options to personalize their profile page, for example changing their profile picture and adding a bio.
   * More account configuration and authentication features.
 
@@ -221,6 +222,40 @@ Testing documentation can be found [here](https://github.com/Stockman-Jr/Creativ
 
 ## Deployment
 
+This project was deployed using heroku, steps to deployment are as follows:
+  * Sign up to heroku if you haven't, then check for a button labelled "New" at the top right of the dashboard.
+    * Click that button to display a dropdown menu and select "Create New App".
+    * This will take you to a new page, where you can enter your region and choose a name for your new app, which must be unique. Then click "Create App"
+  
+  * On the next page, navigate to the "Settings" tab on the menu, and find the section called "Config Vars"
+  * Click on the button labelled "Config Vars" and add necessary keys and values:
+      * Add value for 'SECRET_KEY' to connect to your django enviroment
+      * Add value for 'DATABASE_URL' to connect to your database
+      * Add value for 'CLOUDINARY_URL' to connect to cloudinary
+  * Navigate to "Buildpacks" underneath "Config Vars".
+  * Click "Add buildpacks", and add python.
+
+  * Scroll back to the top menu and click the "Deploy" tab.
+    * Here you'll have some options for deployment, I used github for this.
+    * Once you've clicked on the Github button you will be able to search for your Github repository and connect to it.
+    * Once connected, it's time to deploy. You can choose to deploy automatically or manually.
+
+
+  ### Forking and cloning
+  If you'd want to experiment and work on this code you can fork or clone this project.
+  This will allow you do whatever you want without altering the original.
+
+  #### Steps to forking:
+  * In the repository, navigate to the "Fork" button which is located in the top-right of the page, next to "Star".
+  * Simply click on this button and a copy of this repository will be added to yours.
+
+  #### Cloning:
+  * Navigate to the top right of this repository and find the button labelled "Code", and click to display a dropdown menu.
+  * Here you can either:
+      * Choose the option "Download as ZIP" which will download all files and save a copy locally.
+      * Choose the option "Open with Github Desktop" and work from there.
+
+
 
 ---
 
@@ -228,7 +263,7 @@ Testing documentation can be found [here](https://github.com/Stockman-Jr/Creativ
 
 ### Media/Design
   * [Fontspace](https://www.fontspace.com/shine-font-f65872) - Shine font used for the header
-  * [Pinterest Board]()
+  * [Pinterest Board](https://www.pinterest.se/mimmistockman/p4/) - Pinterest board of images used for testing
   * [ShapeDivider](https://www.shapedivider.app/) - Used to create the svg shape in the header
 
 ### Code

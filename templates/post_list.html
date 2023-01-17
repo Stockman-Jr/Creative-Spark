@@ -23,8 +23,9 @@
             <hr>
             <div class="d-flex align-items-center">
               <div class="card_avatar flex-grow-1">
-                <a href="{{ post.author.profile.get_absolute_url }}">
-                  <img src="{{ request.user.profile.image.url }}" alt="User profile picture"></a>
+                <!--<a href="{{ post.author.profile.get_absolute_url }}">-->
+                  <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
+                <!--</a>-->
                 <span>
                   <strong>
                     <a href="{{ post.author.profile.get_absolute_url }}">{{ post.author }}</a>
@@ -34,7 +35,7 @@
               <!--LIKE SECTION-->
               <div class="like" id="{{ post.id }}">
                 {% if post in post_liked %}
-                  <span class="like-btn" id="{{ post.pk }}">
+                  <span class="like-btn">
                     <a href="{% url 'post_like' %}" id="likeBtn{{ post.pk }}" class="liked"><i
                         class="fas fa-heart list-like"></i></a>
                     <span class="like-count{{ post.pk }}">{{ post.likes.count }}</span>
@@ -66,11 +67,9 @@
 {% block js %}
 <!--AJAX HANDLING OF COMMENTS AND LIKES-->
 <script>
-  $(document).ready(function () {
   $(".comment_form").on("submit", function (e) {
      e.preventDefault();
      var pk = $(this).attr('value')
-     console.log($(this).serialize());
      $.ajax({
          type: 'POST',
          url: $(this).attr('action'),
@@ -80,7 +79,6 @@
                    },
          data: $(this).serialize(),
          success: function (response) {
-             console.log('SUCCESS')
              $(".comment_form").trigger('reset');
      
              $('.comment').prepend(
@@ -91,13 +89,12 @@
          }
     });
  });
-});
+
 
 $(function() {
   $('.like').on("click", function(e) {
         var id = this.id;
         var href = $(".like").find("a").attr("href")
-        console.log(href, id)
         const likes = $('.like-count' + id).text()
         const countLikes = parseInt(likes)
         e.preventDefault()
@@ -127,8 +124,5 @@ $(function() {
   });
 </script>
 {% endblock js %}
-
-
-
 
 {%endblock%}
