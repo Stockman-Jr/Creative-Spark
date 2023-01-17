@@ -96,4 +96,3 @@ class TestViews(TestCase):
             'name': self.user, 'body': 'Test Comment'
             })
         self.assertEqual(Comment.objects.last().content, 'Test Comment')
-

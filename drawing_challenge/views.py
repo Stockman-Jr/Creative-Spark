@@ -58,14 +58,16 @@ class PostList(ListView, ModelFormMixin):
 
         return ListView.get(self, request, *args, **kwargs)
 
-    def get_context_data(self, *args, **kwargs): 
+    def get_context_data(self, *args, **kwargs):
         context = super(PostList, self).get_context_data(*args, **kwargs)
 
         approved_posts = Post.objects.filter(approved=True)
 
         if self.request.user.is_authenticated:
-            liked = [i for i in Post.objects.all() if Like.objects.filter(user=self.request.user, post=i)]
-            faved = [i for i in Post.objects.all() if Profile.objects.filter(user=self.request.user, favourite=i)]
+            liked = [i for i in Post.objects.all() if Like.objects.filter(
+                user=self.request.user, post=i)]
+            faved = [i for i in Post.objects.all() if Profile.objects.filter(
+                user=self.request.user, favourite=i)]
 
             context['form'] = self.form
             context['post_liked'] = liked
@@ -74,7 +76,9 @@ class PostList(ListView, ModelFormMixin):
         return context
 
     def get_queryset(self):
-        return Post.objects.filter(challenge__challenge_prompt=self.kwargs['challenge'])
+        return Post.objects.filter(
+            challenge__challenge_prompt=self.kwargs['challenge']
+            )
 
 
 @login_required
@@ -90,13 +94,17 @@ def post(request):
     if post_form.is_valid():
         form = post_form.save(commit=False)
         form.author = request.user
-        messages.add_message(request, messages.SUCCESS, 'Submit sucessful, awaiting approval!')
+        messages.add_message(
+            request, messages.SUCCESS, 'Submit sucessful, awaiting approval!'
+            )
         form.save()
         return redirect('home')
 
     challenge = Challenge.objects.filter(status='Active')[0]
     post_form = PostForm(initial={'challenge': challenge})
-    return render(request, 'post_upload.html', context={'post_form': post_form})
+    return render(
+        request, 'post_upload.html', context={'post_form': post_form}
+        )
 
 
 class PostUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -153,7 +161,9 @@ def post_detail(request):
             return JsonResponse(model_to_dict(comment), status=200)
 
     if is_ajax:
-        html = render_to_string('post_detail.html', {'form': form}, request=request)
+        html = render_to_string(
+            'post_detail.html', {'form': form}, request=request
+            )
         return JsonResponse({'form': html})
 
 
@@ -190,7 +200,9 @@ def add_favourite(request, pk):
 
     if profile.favourite.filter(id=pk).exists():
         profile.favourite.remove(post)
-        messages.add_message(request, messages.INFO, 'Removed from favourites.')
+        messages.add_message(
+            request, messages.INFO, 'Removed from favourites.'
+            )
     else:
         profile.favourite.add(post)
         messages.add_message(request, messages.SUCCESS, 'Added to favourites!')

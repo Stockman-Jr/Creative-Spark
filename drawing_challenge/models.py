@@ -28,7 +28,7 @@ class Challenge(models.Model):
 
     @property
     def is_active(self):
-        if (self.date_created.date() + timedelta(days=1)) > date.today():
+        if (self.date_created.date() + timedelta(days=2)) > date.today():
             self.status = 'Active'
         else:
             self.status = 'Inactive'
@@ -41,7 +41,9 @@ class Challenge(models.Model):
 
 class Post(models.Model):
     """User Post Model"""
-    challenge = models.ForeignKey(Challenge, on_delete=models.CASCADE, related_name='challenges')
+    challenge = models.ForeignKey(
+        Challenge, on_delete=models.CASCADE, related_name='challenges'
+        )
     title = models.CharField(max_length=200)
     caption = models.CharField(max_length=1000, blank=True)
     image_post = models.ImageField(upload_to='post_images')
@@ -61,7 +63,9 @@ class Post(models.Model):
 
 class Comment(models.Model):
     """Model user created comments"""
-    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        Post, related_name='comments', on_delete=models.CASCADE
+        )
     content = models.TextField(max_length=800)
     name = models.CharField(max_length=50)
     date_created = models.DateTimeField(auto_now=True)
@@ -75,5 +79,9 @@ class Comment(models.Model):
 
 class Like(models.Model):
     """Model for liking posts"""
-    user = models.ForeignKey(User, related_name='likes', on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, related_name='likes', on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, related_name='likes', on_delete=models.CASCADE
+        )
+    post = models.ForeignKey(
+        Post, related_name='likes', on_delete=models.CASCADE
+        )

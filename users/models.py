@@ -11,7 +11,9 @@ from django.conf import settings
 class Profile(models.Model):
     """Model for User Profiles"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.png', upload_to='profile_avatars')
+    image = models.ImageField(
+        default='default.png', upload_to='profile_avatars'
+        )
     slug = AutoSlugField(populate_from='user')
     favourite = models.ManyToManyField(Post, blank=True)
 
