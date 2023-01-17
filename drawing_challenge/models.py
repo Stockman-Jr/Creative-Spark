@@ -5,6 +5,7 @@ from cloudinary.models import CloudinaryField
 from django.urls import reverse
 from datetime import date, timedelta
 
+
 STATUS = [
         ('Active', 'Active'),
         ('Inactive', 'Inactive')
@@ -16,7 +17,7 @@ class Challenge(models.Model):
     title = models.CharField(max_length=200)
     challenge_prompt = models.CharField(max_length=500, unique=True)
     featured_image = CloudinaryField('image')
-    date_created = models.DateTimeField(auto_now=True)
+    date_created = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=STATUS, default='Active')
 
     class Meta:
@@ -27,10 +28,12 @@ class Challenge(models.Model):
 
     @property
     def is_active(self):
-        if (self.date_created.date() + timedelta(days=2)) > date.today():
-            return self.status == 'Active'
-        elif (self.date_created.date() + timedelta(days=2)) < date.today():
-            return self.status == 'Inactive'
+        if (self.date_created.date() + timedelta(days=1)) > date.today():
+            self.status = 'Active'
+        else:
+            self.status = 'Inactive'
+            self.save()
+        return self.status
 
     def get_absolute_url(self):
         return reverse("post_list")
