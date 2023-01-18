@@ -229,7 +229,6 @@ Testing documentation can be found [here](https://github.com/Stockman-Jr/Creativ
   * [Google Fonts](https://fonts.google.com/specimen/Abel?query=abel) - Main font used
   * [Fontspace](https://www.fontspace.com) - Font used for the header
   * [Heroku](https://www.heroku.com/) - For deploying the project
-  * [Am I Responsive?](https://ui.dev/amiresponsive) - To display website on different devices.
   * [ElephantSQL]() - Was used as the database for this project
   * [Cloudinary](https://cloudinary.com/) - For hosting media files
 

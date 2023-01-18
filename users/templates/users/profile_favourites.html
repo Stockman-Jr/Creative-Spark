@@ -6,10 +6,8 @@
 <div class="d-flex flex-row flex-shrink-0 p-3 text-white user-nav">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <span class="fs-4 card-avatar"> 
-        {% if user.profile.image.url and user.is_authenticated %}
+        {% if user.profile.image.url %}
             <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
-        {% else %}
-            <img src="{% static '/imgs/default.png' %}" alt="User profile picture">
         {% endif %}
             {{ p_user.username }}'s Profile
         </span>
