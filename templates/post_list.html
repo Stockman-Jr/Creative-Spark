@@ -24,17 +24,27 @@
             <hr>
             <div class="d-flex align-items-center">
               <div class="card_avatar flex-grow-1">
-                <a href="{{ post.author.profile.get_absolute_url }}">
+                
                   {% if user.profile.image.url and user.is_authenticated %}
-                    <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
+                    <a href="{{ post.author.profile.get_absolute_url }}"></a>
+                      <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
+                    </a>
                   {% else %}
-                    <img src="{% static '/imgs/default.png' %}" alt="User profile picture">
+                    <a href="{% url 'account_login' %}">
+                      <img src="https://res.cloudinary.com/dfwe96b7n/image/upload/v1673513782/media/default.png" alt="User profile picture">
+                    </a>
                   {% endif %}
-                </a>
+              
                 <span>
-                  <strong>
-                    <a href="{{ post.author.profile.get_absolute_url }}">{{ post.author }}</a>
-                  </strong>
+                  {% if user.is_authenticated %}
+                    <strong>
+                      <a href="{{ post.author.profile.get_absolute_url }}">{{ post.author }}</a>
+                    </strong>
+                  {% else %}
+                    <strong>
+                    <a href="{% url 'account_login' %}">{{ post.author }}</a>
+                    </strong>
+                  {% endif %}
                 </span>
               </div>
               <!--LIKE SECTION-->
