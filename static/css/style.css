@@ -16,7 +16,7 @@
   }
   
   body {
-    font-family: "Abel";
+    font-family: "Abel", Serif, Sans-Serif;
     letter-spacing: 0.1em;
     height: 100vh;
   }
@@ -33,11 +33,12 @@
   header {
     height: 300px;
     position: relative;
+    background-color: rgb(26,27,54);
   }
   
   .bg-image {
     background-color: transparent;
-    background-image: url('/static/imgs/header-bg.jpg');
+    background-image: url('{% static "/imgs/header-bg_idsad6.jpg" %}');
     background-repeat: no-repeat;
     background-position: center;
     filter: blur(6px);
@@ -58,7 +59,7 @@
   }
   
   h1 {
-    font-family: "ShineDemo", "Sail", sans-serif;
+    font-family: "ShineDemo", "Sail", Sans-Serif;
     font-weight: 300;
     font-size: 180%;
     text-align: center;
@@ -201,7 +202,7 @@
 .challenge-prompt {
   font-weight: 700;
   font-size: 160%;
-  font-family: "Abel", sans-serif;
+  font-family: "Abel", Sans-Serif;
   vertical-align: middle !important;
 }
 

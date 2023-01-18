@@ -77,7 +77,7 @@ class PostList(ListView, ModelFormMixin):
 
     def get_queryset(self):
         return Post.objects.filter(
-            challenge__challenge_prompt=self.kwargs['challenge']
+            challenge__slug=self.kwargs['slug']
             )
 
 

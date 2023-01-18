@@ -4,6 +4,7 @@ from PIL import Image
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
 from datetime import date, timedelta
+from autoslug import AutoSlugField
 
 
 STATUS = [
@@ -19,6 +20,7 @@ class Challenge(models.Model):
     featured_image = CloudinaryField('image')
     date_created = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=STATUS, default='Active')
+    slug = AutoSlugField(populate_from='challenge_prompt')
 
     class Meta:
         ordering = ['-date_created']
@@ -36,7 +38,10 @@ class Challenge(models.Model):
         return self.status
 
     def get_absolute_url(self):
-        return reverse("post_list")
+        return "/posts/{}/".format(self.slug)
+
+    #def get_absolute_url(self):
+    #    return reverse("post_list")
 
 
 class Post(models.Model):
