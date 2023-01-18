@@ -453,7 +453,7 @@ color: rgb(13, 91, 94);
 }
 
 .user-gallery {
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: rgb(236, 234, 234);
 }
 
@@ -587,11 +587,17 @@ font-weight: 700;
   .badge {
     margin-top: 5px;
   }
+
+  .sidebar {
+    font-size: 13px;
+  }
+  
+  .post-gallery {
+    max-width: 80%;
+  }
 }
 
-.sidebar {
-  font-size: 13px;
-}
+
 
 @media screen and (max-width: 360px) {
   .intro-text {
@@ -604,7 +610,6 @@ font-weight: 700;
     font-size: 80%;
   }
 
-
   .challenge-info {
     margin-top: 70px;
   }
@@ -612,6 +617,14 @@ font-weight: 700;
   .challenge-card {
     padding: 0;
  
+  }
+
+  .view-comments .post-btn, .info-text {
+    font-size: 13px;
+  }
+
+  .post-gallery {
+    max-width: 100%;
   }
 
 }

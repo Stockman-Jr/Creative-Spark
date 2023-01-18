@@ -102,13 +102,13 @@ For some of the User Stories an acceptance criteria was also added using the: **
 
 ### Existing Features
 
-#### Landing Page
+#### **Landing Page**
 ![Header](assets/images/header-nav.png)
 
   * The landing page features the header with navigation links, text with an introduction to the website and a list of active challenges the users can participate in.
 
 
-#### Navigation
+#### **Navigation**
   * The navigation is simple but also provides the user with many options to navigate the page, and is passed down to all pages of the application through base.html.
   * For an unauthenticated user the navigation is in the header, featuring "Home", "Browse Art" with a dropdown link to inactive challenges, "Sign Up" and "Sign in".
 
@@ -129,7 +129,7 @@ For some of the User Stories an acceptance criteria was also added using the: **
 
 
 
-#### Challenges
+#### **Challenges**
   * Challenges are displayed in bootstrap cards with a featured image, the drawing prompt and one or two button links.
   The cards provides the user with simple but clear information about the drawing challenge.
   * All challenges are open for submissions for 48 hours from the moment they are posted. The active challenges are displayed in the "Home" page, and the inactive challenges are displayed in the "Past Challenges" page.
@@ -141,8 +141,17 @@ For some of the User Stories an acceptance criteria was also added using the: **
   The submit button will not be available as users cannot participate in inactive challenges.
   ![Inctive Challenge](assets/images/inactive-challenge.png)
 
+**Create Challenge**
 
-#### Browsing Artwork / Post List
+Since challenges are automatically set to Inactive and moved to the 'Past Challenges' page after two days, here are instructions to add a new challenge: 
+  * Challenges are created by admins in the admin page, to create one:
+    * Go to /admin, and sign in with a superuser account
+    * Click on the + sign next to Challenges, or navigate to the Challenges page and click on the 'Add challenge +' button
+    * Type in a title(Daily Challenge), a drawing prompt and select a featured image, then click save.
+    * Click on view site to get to the home view and view the newly added challenge
+
+
+#### **Browse Artwork / Post List**
   * When the user clicks the "Browse Artwork" link on a challenge, they will be redirected to a page displaying all the posts submitted to that challenge.
   * All user posts are displayed in bootstrap cards, and features the artwork, like button with like count, as well as information about the post.
   * Provided that the user is authenticated, they can interact with the like button to like or unlike a post and view the creator of the post's profile page by clicking on the avatar/username.
@@ -177,9 +186,16 @@ For some of the User Stories an acceptance criteria was also added using the: **
   ![Comments Modal](assets/images/profile-view-comments.png)
   * The purpose of profile pages are to allow easy access to the users own uploaded content to view, edit or delete
 
+
+#### Footer
+![Footer](assets/images/footer.png)
+
+ * Simple footer featuring some text and a link to instagram that opens in a new tab
+
 ### Future Features
   * If provided more time, I would have wanted to create a "Winners" page, which would feature the most liked posts from every drawing challenge that has ended.
   * Give users options to personalize their profile page, for example changing their profile picture and adding a bio.
+  * Allow users to delete their comments
   * More account configuration and authentication features.
 
 

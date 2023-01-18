@@ -22,8 +22,37 @@
   ![CSS Validation](assets/images/css-validation.png)
 
   * **Python PEP8**
+   * No errors found with pep8.
 
   * **Lighthouse**
+The lighthouse results are abit varying, and there is definitely room for improvement here, especially for mobile.
+Unfortunately I ran out of time to improve this.
+
+### Desktop
+**Home/Past Challenges**
+
+![Home/Past Pages](assets/images/past-lighthouse.png)
+
+**Post List pages**
+
+![Post List](assets/images/post-list-lighthouse.png)
+
+**Profile Pages**
+
+![Profile](assets/images/profile-lighthouse.png)
+
+### Mobile
+**Home/Past Challenges**
+
+![Home/Past Pages](assets/images/mobile-past-lhouse.png)
+
+**Post List pages**
+
+![Post List](assets/images/mobile-posts-lhouse.png)
+
+**Profile Pages**
+
+![Profile](assets/images/mobile-profile-lhouse.png)
 
 ### **Automated Testing**
 Some automated unit testing was written for this project. Due to inexperience of writing automated tests it was taking up too much of the little time I had left before deadline. I still felt like it was necessary to write tests and learn as much as I could since I'm sure unit testing will be more important for future projects. I've been as thorough as I can with the manual testing to try and compensate for the gaps in the automated testing.
@@ -118,14 +147,18 @@ Some automated unit testing was written for this project. Due to inexperience of
    * **Result** - None of the solutions I tried gave me the result I wanted, but by experimenting with different code snippets I eventually came up with something that worked.
   * **Fix** - I ended up creating a count varible of the span element containing the post like count, adding +1 if liked was true and -1 if liked was false, then updating the text value of the span with that. It works, but there is probably a better solution to this as it's a bit flawed.
 
-#### 
-  * **Expected** -
-  * **Testing** - 
-  * **Result** - .
-  * **Fix** - 
+#### Profile Pictures not displaying for unathenticated users
+  * **Expected** - That profile pictures would not be broken for users who are not logged in
+  * **Testing** - Went through code to see whats causing it, tried different code in template
+  * **Result** - Found out that beacause profiles are only available to aunthenticated users, so was the profile pictures
+  * **Fix** - I set up and if statement in the template, so if users are unathenticated, use a local file
 
 
 ### Unsolved bugs
  * As mentioned, the like count not updating fix was flawed, because if you were to spam the like button quickly, the counter does not keep up. But refreshing the page displays everything correctly.
- 
+
+ * Uncaught ReferenceError: $ is not defined is displayed in console.
+  I know that this has to do with the placement of my jquery script. I've tried to place it in different places, for example placing the script in the head removes the error, but if I submit a comment, there will be two identical comments submitted. I ran out of time to try and fix this.
+
+
 ---

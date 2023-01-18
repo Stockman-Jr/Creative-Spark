@@ -5,7 +5,11 @@
 <div class="d-flex flex-row flex-shrink-0 p-3 text-white user-nav">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <span class="fs-4 card-avatar"> 
-            <img src="{{ p_user.profile.image.url }}" alt="User profile picture">
+        {% if user.profile.image.url and user.is_authenticated %}
+            <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
+        {% else %}
+            <img src="{% static '/imgs/default.png' %}" alt="User profile picture">
+        {% endif %}
             {{ p_user.username }}'s Profile
         </span>
     </a>
@@ -39,21 +43,24 @@
 </div>
 
 <!--FAVOURITES GALLERY-->
+<div class="mt-4">
 {% if '/users/' in request.path %}
-    <h4 class="text-center mt-4"> {{ p_user.username }}'s favourites: </h4>
+    <h4 class="text-center"> {{ p_user.username }}'s favourites: </h4>
 {% elif '/my-profile/' in request.path %}
-    <h4 class="text-center mt-4"> Your favourites: </h4>
+    <h4 class="text-center"> Your favourites: </h4>
 {% endif %}
-<div class="container-fluid d-flex justify-content-center mt-4 user-gallery">
+</div>
+<div class="container-fluid d-flex justify-content-center user-gallery">
     <div class="post-gallery">
         {% for post in faves %}
             <div class="post-wrapper mb-3 text-center">
                 <img class="img-fluid artwork" src="{{ post.image_post.url }}" alt="Image of user submitted artwork">
                 <div class="card-footer post-info">
                     <div class="info-text">
-                        <p>Created by: {{ post.author }}</p>
-                        <p>Challenge: {{ post.challenge.challenge_prompt }}</p>
-                        <span>Likes: {{ post.likes.count }}</span>
+                        <small><strong>Title:</strong> {{ post.title }} <br></small>
+                        <small><strong>Created by:</strong> {{ post.author }}<br></small>
+                        <small><strong>Challenge:</strong> {{ post.challenge.challenge_prompt }}<br></small>
+                        <small><strong><i class="fas fa-heart liked"></i></strong> {{ post.likes.count }}</small> 
                     </div>
                     <div class="view-comments">
                         <a class="btn post-btn mb-2 mt-1" href="#viewComments{{ post.pk }}" data-bs-toggle="modal">View comments</a>

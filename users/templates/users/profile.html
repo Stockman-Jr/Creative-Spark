@@ -4,10 +4,12 @@
 <!-- PROFILE NAV -->
 <div class="d-flex flex-row flex-shrink-0 p-3 text-white user-nav">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <span class="fs-4 card-avatar">
-     
-                <img src="{{ p_user.profile.image.url }}" alt="User profile picture" >
-   
+        <span class="fs-4 card-avatar">    
+        {% if user.profile.image.url and user.is_authenticated %}
+            <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
+        {% else %}
+            <img src="{% static '/imgs/default.png' %}" alt="User profile picture">
+        {% endif %}  
             {{ p_user.username }}'s Profile
         </span>
     </a>
@@ -42,7 +44,12 @@
 
 
 <div class="mt-4">
-    <h5 class="text-center">Challenge submissions: {{ post_count }}</h5>
+{% if '/users/' in request.path %}
+    <h4 class="text-center"> {{ p_user.username }}'s Posts: </h4>
+{% elif '/my-profile/' in request.path %}
+    <h4 class="text-center"> Your Posts: </h4>
+{% endif %}
+    <h6 class="text-center">Challenge submissions: {{ post_count }}</h5>
   </div>
 
 <!--USER POSTS GALLERY-->

@@ -1,14 +1,24 @@
-    <!--MODAL-->
+{% load static %}
+   <!--MODAL-->
 <div class="modal fade" id="postDetailModal{{post.pk}}" tabindex="-1" role="dialog" aria-label="popupLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg mt-0">
         <div class="modal-content">
             <div class="modal-header flex-row d-flex justify-content-between">
                 <div class="card_avatar">
-                    <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
-                    <span>
-                        <a href="{{ post.author.profile.get_absolute_url }}">Art by: {{ post.author }}</a>
-                    </span>
+                 
+                    <a href="{{ post.author.profile.get_absolute_url }}">
+                        {% if user.profile.image.url and user.is_authenticated %}
+                          <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
+                        {% else %}
+                          <img src="{% static '/imgs/default.png' %}" alt="User profile picture">
+                        {% endif %}
+                      </a>
+                      <span>
+                        <strong class="text-center">
+                          <a href="{{ post.author.profile.get_absolute_url }}">{{ post.author }}</a>
+                        </strong>
+                      </span>
                 </div>
                 <h5 class="modal-title text-center">{{ post.title }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

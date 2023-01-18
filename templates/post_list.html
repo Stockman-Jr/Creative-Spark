@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 <div class=" py-5">
   
@@ -23,9 +23,13 @@
             <hr>
             <div class="d-flex align-items-center">
               <div class="card_avatar flex-grow-1">
-                <!--<a href="{{ post.author.profile.get_absolute_url }}">-->
-                  <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
-                <!--</a>-->
+                <a href="{{ post.author.profile.get_absolute_url }}">
+                  {% if user.profile.image.url and user.is_authenticated %}
+                    <img src="{{ request.user.profile.image.url }}" alt="User profile picture">
+                  {% else %}
+                    <img src="{% static '/imgs/default.png' %}" alt="User profile picture">
+                  {% endif %}
+                </a>
                 <span>
                   <strong>
                     <a href="{{ post.author.profile.get_absolute_url }}">{{ post.author }}</a>
@@ -65,8 +69,10 @@
 </div>
 
 {% block js %}
+
 <!--AJAX HANDLING OF COMMENTS AND LIKES-->
 <script>
+  $( document ).ready(function() {
   $(".comment_form").on("submit", function (e) {
      e.preventDefault();
      var pk = $(this).attr('value')
@@ -104,7 +110,6 @@ $(function() {
             likeId: id,
           },
           success: function(response) {
-            console.log(response.liked)
             if (response.liked == true) {
               $(".like").find("#likeBtn" + id).removeClass("unliked").addClass("liked press")
   
@@ -122,6 +127,7 @@ $(function() {
         });
     });
   });
+});
 </script>
 {% endblock js %}
 
