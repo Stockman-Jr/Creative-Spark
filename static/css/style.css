@@ -1,11 +1,11 @@
 @font-face {
     font-family: "ShineDemo";
-    src: url("/static/fonts/ShineDemo.otf");
+    src: url("https://res.cloudinary.com/dfwe96b7n/raw/upload/v1674034727/static/fonts/ShineDemo.c68ab3b9e9de.otf");
   }
   
   @font-face {
     font-family: "Abel";
-    src: url("/static/fonts/Abel-Regular.ttf");
+    src: url("https://res.cloudinary.com/dfwe96b7n/raw/upload/v1674034727/static/fonts/Abel-Regular.1052d6ca3993.ttf");
   }
 
   * {
@@ -38,7 +38,7 @@
   
   .bg-image {
     background-color: transparent;
-    /*background-image: url('{% static "/imgs/header-bg_idsad6.jpg" %}');*/
+    background-image: url('/static/imgs/header-bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     filter: blur(6px);
