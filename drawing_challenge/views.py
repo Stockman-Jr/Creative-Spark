@@ -108,6 +108,7 @@ def post(request):
 
 
 class PostUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """UpdateView for editing a post"""
     model = Post
     fields = ['title', 'caption']
     template_name = 'post_update.html'

@@ -68,7 +68,7 @@ An agile approach was implemented for this project with a Github projects kanban
 
 An issue template was created for adding User Stories. Each User Story was added with a label of priority using the: **Must Have**, **Should Have** or **Could Have**.
 
-For some of the User Stories an acceptance criteria was also added using the: **Given**, **When**, **Then**, **And** statements.
+Acceptance criteria was added on a few of the User Stories using the: **Given**, **When**, **Then**, **And** statements.
 
 ---
 

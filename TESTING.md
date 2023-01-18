@@ -14,8 +14,14 @@
   * **HTML**
 [W3C HTML Validator](https://jigsaw.w3.org/css-validator/validator) was used to validate the html written for the project.
 
+ * All but one of the pages checked out with no errors
 
 ![HTML Validation](assets/images/html-validation.png)
+
+On the post list page, I am using a crispy form template in the post for loop, as I need the comment form to be displayed on every post modal.
+Because of the crispy form setting id for the textarea automatically, errors were displayed because of multiple ids with the same name.
+I'm sure there might be a way around this, but I ran out of time to try and fix this.
+
   * **CSS**
   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator) was used to validate CSS written for this project, no issues were found.
 
@@ -137,9 +143,6 @@ Some automated unit testing was written for this project. Due to inexperience of
 
 
 ### Bugs
-
-#### 
-  * **Fix** - 
 
 #### Like Count Not Updating
   * **Expected** - For like count to update without page refresh
