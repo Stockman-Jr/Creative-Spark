@@ -40,9 +40,6 @@ class Challenge(models.Model):
     def get_absolute_url(self):
         return "/posts/{}/".format(self.slug)
 
-    #def get_absolute_url(self):
-    #    return reverse("post_list")
-
 
 class Post(models.Model):
     """User Post Model"""
